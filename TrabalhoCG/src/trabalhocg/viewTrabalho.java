@@ -6,10 +6,15 @@
 package trabalhocg;
 
 import java.awt.Color;
+import java.awt.Frame;
 import java.awt.Graphics;
-import java.util.Arrays;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,9 +22,22 @@ import javax.swing.JButton;
  */
 public class viewTrabalho extends javax.swing.JFrame {
 
+    enum MouseState {
+        MOUSE_NORMAL,
+        MOUSE_ROTACAO,
+        MOUSE_ESCALA,
+        MOUSE_TRANSLACAO
+    }
+    
     escolhaDePoligono escolha;
     
+    private MouseState mouseState = MouseState.MOUSE_NORMAL;
     
+    private Optional<Poligono> desenho = Optional.empty();
+    
+    
+    private int lastX;
+    private int lastY;
     
     /**
      * Creates new form viewTrabalho
@@ -38,6 +56,13 @@ public class viewTrabalho extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        escalaFrame = new javax.swing.JDialog();
+        OK_Escala = new javax.swing.JButton();
+        Cancel_Escala = new javax.swing.JButton();
+        TextSx = new javax.swing.JFormattedTextField();
+        TextSy = new javax.swing.JFormattedTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         painel = new javax.swing.JPanel();
         ImageIcon imgReta = new ImageIcon(getClass().getResource("/imagens/reta.png"));
         drawLine = new javax.swing.JButton("",imgReta);
@@ -56,10 +81,84 @@ public class viewTrabalho extends javax.swing.JFrame {
         ImageIcon imgZoomExtend = new ImageIcon(getClass().getResource("/imagens/zoomextend.png"));
         zoomExtend = new javax.swing.JButton("",imgZoomExtend);
 
+        escalaFrame.setName("escala dialog"); // NOI18N
+
+        OK_Escala.setText("OK");
+        OK_Escala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OK_EscalaActionPerformed(evt);
+            }
+        });
+
+        Cancel_Escala.setText("Cancelar");
+        Cancel_Escala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cancel_EscalaActionPerformed(evt);
+            }
+        });
+
+        TextSx.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.###"))));
+
+        TextSy.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.###"))));
+
+        jLabel1.setText("Escala X:");
+
+        jLabel2.setText("Escala Y:");
+
+        javax.swing.GroupLayout escalaFrameLayout = new javax.swing.GroupLayout(escalaFrame.getContentPane());
+        escalaFrame.getContentPane().setLayout(escalaFrameLayout);
+        escalaFrameLayout.setHorizontalGroup(
+            escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escalaFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(escalaFrameLayout.createSequentialGroup()
+                        .addGroup(escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(OK_Escala, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextSx, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Cancel_Escala, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(escalaFrameLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(TextSy, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        escalaFrameLayout.setVerticalGroup(
+            escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escalaFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextSy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(OK_Escala)
+                    .addComponent(Cancel_Escala))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         painel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        painel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                painelMouseDragged(evt);
+            }
+        });
         painel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                painelMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                painelMouseReleased(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 painelMouseClicked(evt);
             }
@@ -97,6 +196,18 @@ public class viewTrabalho extends javax.swing.JFrame {
         drawTri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drawTriActionPerformed(evt);
+            }
+        });
+
+        translacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                translacaoActionPerformed(evt);
+            }
+        });
+
+        escala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                escalaActionPerformed(evt);
             }
         });
 
@@ -152,31 +263,21 @@ public class viewTrabalho extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void drawRectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawRectActionPerformed
-        //escolha = new escolhaDePoligono(4,painel);
-        //escolha.setVisible(true);
-        
-        Poligono p = new Poligono(
-                new Ponto2D[] {
-                    new Ponto2D(0,0),
-                    new Ponto2D(0, 200),
-                    new Ponto2D(200,0)
-                }
-        );
-        
-        
+    
+    private void desenhar()
+    {
+        if(!desenho.isPresent()) return;
+        Poligono des = desenho.get();
         
         Graphics g1 = painel.getGraphics();
         g1.setColor(Color.white);
         g1.fillRect(0,0, painel.getWidth(), painel.getHeight());
         
-        
         g1.setColor(Color.black);
-
-        p.scale(new Ponto2D(1,1), 0.5, 3);
         
-        double[][] coords = p.transJanelaViewport(painel.getHeight()-1);
-        Poligono.printMatrix(coords);
+        
+        double[][] coords = des.transJanelaViewport(painel.getHeight()-1);
+
         int[] xs;
         xs = new int[coords[0].length];
         int[] ys;
@@ -186,16 +287,32 @@ public class viewTrabalho extends javax.swing.JFrame {
             ys[i] = (int) Math.round(coords[1][i]);
         }
         
-        
-        
-        
         g1.drawPolygon(xs, ys, coords[0].length);
+        
+    }
+    
+    private void drawRectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawRectActionPerformed
+        //escolha = new escolhaDePoligono(4,painel);
+        //escolha.setVisible(true);
+        
+        desenho = Optional.of(
+            new Poligono(
+                    new Ponto2D[] {
+                        new Ponto2D(0,0),
+                        new Ponto2D(0, 200),
+                        new Ponto2D(200,0)
+                    }
+            )
+        );
+        
+        desenhar();
         
     }//GEN-LAST:event_drawRectActionPerformed
 
     private void limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparActionPerformed
         painel.repaint();
         painel.setBackground(Color.white);
+        desenho = Optional.empty();
     }//GEN-LAST:event_limparActionPerformed
 
     private void drawTriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawTriActionPerformed
@@ -211,6 +328,87 @@ public class viewTrabalho extends javax.swing.JFrame {
         escolha = new escolhaDePoligono(2,painel);
         escolha.setVisible(true);
     }//GEN-LAST:event_drawLineActionPerformed
+
+    private void painelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMousePressed
+        lastX = evt.getX();
+        lastY = evt.getY();
+    }//GEN-LAST:event_painelMousePressed
+
+    private void painelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseReleased
+        
+    }//GEN-LAST:event_painelMouseReleased
+
+    private void translacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_translacaoActionPerformed
+        if(mouseState != MouseState.MOUSE_TRANSLACAO) {
+            mouseState = MouseState.MOUSE_TRANSLACAO;
+        } else{
+            mouseState = MouseState.MOUSE_NORMAL;
+        }
+    }//GEN-LAST:event_translacaoActionPerformed
+    
+    private void painelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseDragged
+        if(!desenho.isPresent()) return;
+        Poligono des = desenho.get();
+        
+        int deltaX = (evt.getX() - lastX);
+        int deltaY = (evt.getY() - lastY);
+        lastX = evt.getX();
+        lastY = evt.getY();
+        
+        switch(mouseState) {
+            case MOUSE_TRANSLACAO:
+                if(deltaX != 0 || deltaY != 0) {
+                    des.translate(deltaX, -deltaY);
+                    desenhar();
+                }
+                
+                break;
+            case MOUSE_NORMAL:
+            default:
+                break;
+        }
+    }//GEN-LAST:event_painelMouseDragged
+
+    private void escalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escalaActionPerformed
+        escalaFrame.setVisible(true);
+        escalaFrame.pack();
+    }//GEN-LAST:event_escalaActionPerformed
+
+    private void Cancel_EscalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel_EscalaActionPerformed
+        escalaFrame.dispose();
+    }//GEN-LAST:event_Cancel_EscalaActionPerformed
+
+    private void OK_EscalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OK_EscalaActionPerformed
+        if(!desenho.isPresent()) {
+            escalaFrame.dispose();
+            return;
+        }
+        Poligono des = desenho.get();
+        
+        
+        double Sx = 1.0;
+        double Sy = 1.0;
+        try{
+            NumberFormat fmt = NumberFormat.getInstance();
+            Number num = fmt.parse(TextSx.getText());
+            Sx = num.doubleValue();
+        } catch(NumberFormatException e) {
+        } catch (ParseException ex) {
+            Logger.getLogger(viewTrabalho.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try{
+            NumberFormat fmt = NumberFormat.getInstance();
+            Number num = fmt.parse(TextSy.getText());
+            Sy = num.doubleValue();
+        } catch(NumberFormatException e) {
+        } catch (ParseException ex) {
+            Logger.getLogger(viewTrabalho.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        des.scale(new Ponto2D(0,0), Sx, Sy);
+        desenhar();
+        escalaFrame.dispose();
+    }//GEN-LAST:event_OK_EscalaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,18 +438,23 @@ public class viewTrabalho extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new viewTrabalho().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new viewTrabalho().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cancel_Escala;
+    private javax.swing.JButton OK_Escala;
+    private javax.swing.JFormattedTextField TextSx;
+    private javax.swing.JFormattedTextField TextSy;
     private javax.swing.JButton drawLine;
     private javax.swing.JButton drawRect;
     private javax.swing.JButton drawTri;
     private javax.swing.JButton escala;
+    private javax.swing.JDialog escalaFrame;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton limpar;
     public javax.swing.JPanel painel;
     private javax.swing.JButton rotacao;

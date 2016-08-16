@@ -72,6 +72,8 @@ public class Poligono {
         }
         
         //Realizar a multiplicação
+        
+        
         for(int i = 0; i < aRows; i++) {
             for(int j = 0; j < bCols; j++) {
                 for(int k = 0; k < aCols; k++) {
@@ -142,7 +144,11 @@ public class Poligono {
      * @param y
      */
     public void translate(double x, double y) {
-        coord = multMatrix(getMatrixTranslation(x,y), coord);
+        //coord = multMatrix(getMatrixTranslation(x,y), coord);
+        for(int i = 0; i < coord[0].length; i++) {
+            coord[0][i] += x;
+            coord[1][i] += y;
+        }
     }
     
     /**
@@ -155,20 +161,28 @@ public class Poligono {
     public void scale(Ponto2D ref, double x, double y) {
         
         //Passo 1: transladar até origem
-        double[][] T1 = getMatrixTranslation(-ref.getX(), -ref.getY());
+        //double[][] T1 = getMatrixTranslation(-ref.getX(), -ref.getY());
         
         //Passo 2: escala
-        double[][] S = getMatrixScale(x, y);
+        //double[][] S = getMatrixScale(x, y);
         
         //Passo 3: transladar de volta à referencia
-        double [][] T2 = getMatrixTranslation(ref.getX(), ref.getY());
+        //double [][] T2 = getMatrixTranslation(ref.getX(), ref.getY());
         
         //Final: coord = T2*S*T1*coord
-        coord = multMatrix(T2,
+        /*coord = multMatrix(T2,
                     multMatrix(S,
                         multMatrix(T1, coord)
                     )
-                );
+                );*/
+        
+        double[][] S = {
+            {x, 0, (-ref.getX() * x) + ref.getX()},
+            {0, y, (-ref.getY() * y) + ref.getY()},
+            {0, 0, 1}
+        };
+        
+        coord = multMatrix(S, coord);
     }
     
     /**
