@@ -77,7 +77,7 @@ public class escolhaDePoligono extends javax.swing.JFrame {
         confirmar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         nomePoligono.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         nomePoligono.setText("Coordenadas");
@@ -192,6 +192,11 @@ public class escolhaDePoligono extends javax.swing.JFrame {
                 this.pontosX[1] = Integer.parseInt(ponto2X.getText());
                 this.pontosY[1] = Integer.parseInt(ponto2Y.getText());
                 this.flag = 2;
+                Poligono p = new Poligono(new Ponto2D[]{
+                    new Ponto2D(this.pontosX[0],this.pontosY[0]),
+                    new Ponto2D(this.pontosX[1],this.pontosY[1])
+                });
+                
                 Graphics graphics = panelAux.getGraphics();
                 graphics.drawLine(this.pontosX[0], 300 - this.pontosY[0], this.pontosX[1], 300 - this.pontosY[1]);//inverter o Quadrante
                 //graphics.drawLine(this.pontosX[0], this.pontosY[0], this.pontosX[1], this.pontosY[1]);

@@ -69,7 +69,7 @@ public class viewTrabalho extends javax.swing.JFrame {
         painel.setLayout(painelLayout);
         painelLayout.setHorizontalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 532, Short.MAX_VALUE)
         );
         painelLayout.setVerticalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,7 +105,7 @@ public class viewTrabalho extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(drawRect, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(drawTri, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,13 +121,13 @@ public class viewTrabalho extends javax.swing.JFrame {
                         .addComponent(translacao, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(zoomExtend, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(98, Short.MAX_VALUE))
+                    .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(121, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(escala, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -145,7 +145,7 @@ public class viewTrabalho extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(drawTri, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(66, 66, 66))
+                .addGap(56, 56, 56))
         );
 
         pack();
@@ -153,8 +153,8 @@ public class viewTrabalho extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void drawRectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawRectActionPerformed
-        escolha = new escolhaDePoligono(4,painel);
-        escolha.setVisible(true);
+        //escolha = new escolhaDePoligono(4,painel);
+        //escolha.setVisible(true);
         
         Poligono p = new Poligono(
                 new Ponto2D[] {
@@ -165,12 +165,15 @@ public class viewTrabalho extends javax.swing.JFrame {
         );
         
         
+        
         Graphics g1 = painel.getGraphics();
         g1.setColor(Color.white);
         g1.fillRect(0,0, painel.getWidth(), painel.getHeight());
         
         
         g1.setColor(Color.black);
+
+        p.scale(new Ponto2D(1,1), 0.5, 3);
         
         double[][] coords = p.transJanelaViewport(painel.getHeight()-1);
         Poligono.printMatrix(coords);
@@ -182,6 +185,9 @@ public class viewTrabalho extends javax.swing.JFrame {
             xs[i] = (int) Math.round(coords[0][i]);
             ys[i] = (int) Math.round(coords[1][i]);
         }
+        
+        
+        
         
         g1.drawPolygon(xs, ys, coords[0].length);
         
