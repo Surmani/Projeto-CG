@@ -114,7 +114,7 @@
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(&quot;&quot;,imgReta)"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgReta = new ImageIcon(getClass().getResource(&quot;/trabalhocg/reta.png&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgReta = new ImageIcon(getClass().getResource(&quot;/imagens/reta.png&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="drawRect">
@@ -123,7 +123,7 @@
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(&quot;&quot;,imgRetangulo)"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgRetangulo = new ImageIcon(getClass().getResource(&quot;/trabalhocg/retangulo.png&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgRetangulo = new ImageIcon(getClass().getResource(&quot;/imagens/retangulo.png&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="limpar">
@@ -132,7 +132,7 @@
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(&quot;&quot;,imgLimpar)"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgLimpar = new ImageIcon(getClass().getResource(&quot;/trabalhocg/limpar.png&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgLimpar = new ImageIcon(getClass().getResource(&quot;/imagens/limpar.png&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="drawTri">
@@ -141,31 +141,31 @@
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(&quot;&quot;,imgTriangulo)"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgTriangulo = new ImageIcon(getClass().getResource(&quot;/trabalhocg/triangulo.png&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgTriangulo = new ImageIcon(getClass().getResource(&quot;/imagens/triangulo.png&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="rotacao">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(&quot;&quot;,imgRotacao)"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgRotacao = new ImageIcon(getClass().getResource(&quot;/trabalhocg/rotacao.png&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgRotacao = new ImageIcon(getClass().getResource(&quot;/imagens/rotacao.png&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="translacao">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(&quot;&quot;,imgTranslacao)"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgTranslacao = new ImageIcon(getClass().getResource(&quot;/trabalhocg/translacao.png&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgTranslacao = new ImageIcon(getClass().getResource(&quot;/imagens/translacao.png&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="escala">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(&quot;&quot;,imgEscala)"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgEscala = new ImageIcon(getClass().getResource(&quot;/trabalhocg/escala.png&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgEscala = new ImageIcon(getClass().getResource(&quot;/imagens/escala.png&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="zoomExtend">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(&quot;&quot;,imgZoomExtend)"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgZoomExtend = new ImageIcon(getClass().getResource(&quot;/trabalhocg/zoomextend.png&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgZoomExtend = new ImageIcon(getClass().getResource(&quot;/imagens/zoomextend.png&quot;));"/>
       </AuxValues>
     </Component>
   </SubComponents>

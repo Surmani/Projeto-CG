@@ -234,8 +234,8 @@ public class escolhaDePoligono extends javax.swing.JFrame {
                 for (int i = 0; i < 4; i++) {
                     this.pontosY[i] = 300 - this.pontosY[i];
                 }
-                Graphics graphics = panelAux.getGraphics();
-                graphics.drawPolygon(pontosX, pontosY, 4);//drawRect precisa de 1 pontos e altura e largura
+                //Graphics graphics = panelAux.getGraphics();
+                //graphics.drawPolygon(pontosX, pontosY, 4);//drawRect precisa de 1 pontos e altura e largura
                 this.flag = 2;
                 this.setVisible(false);
             } catch (NumberFormatException ex) {

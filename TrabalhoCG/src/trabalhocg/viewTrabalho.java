@@ -24,8 +24,8 @@ public class viewTrabalho extends javax.swing.JFrame {
      * Creates new form viewTrabalho
      */
     public viewTrabalho() {
-        
         initComponents();
+        painel.setBackground(Color.white);
     }
 
     /**
@@ -38,21 +38,21 @@ public class viewTrabalho extends javax.swing.JFrame {
     private void initComponents() {
 
         painel = new javax.swing.JPanel();
-        ImageIcon imgReta = new ImageIcon(getClass().getResource("/trabalhocg/reta.png"));
+        ImageIcon imgReta = new ImageIcon(getClass().getResource("/imagens/reta.png"));
         drawLine = new javax.swing.JButton("",imgReta);
-        ImageIcon imgRetangulo = new ImageIcon(getClass().getResource("/trabalhocg/retangulo.png"));
+        ImageIcon imgRetangulo = new ImageIcon(getClass().getResource("/imagens/retangulo.png"));
         drawRect = new javax.swing.JButton("",imgRetangulo);
-        ImageIcon imgLimpar = new ImageIcon(getClass().getResource("/trabalhocg/limpar.png"));
+        ImageIcon imgLimpar = new ImageIcon(getClass().getResource("/imagens/limpar.png"));
         limpar = new javax.swing.JButton("",imgLimpar);
-        ImageIcon imgTriangulo = new ImageIcon(getClass().getResource("/trabalhocg/triangulo.png"));
+        ImageIcon imgTriangulo = new ImageIcon(getClass().getResource("/imagens/triangulo.png"));
         drawTri = new javax.swing.JButton("",imgTriangulo);
-        ImageIcon imgRotacao = new ImageIcon(getClass().getResource("/trabalhocg/rotacao.png"));
+        ImageIcon imgRotacao = new ImageIcon(getClass().getResource("/imagens/rotacao.png"));
         rotacao = new javax.swing.JButton("",imgRotacao);
-        ImageIcon imgTranslacao = new ImageIcon(getClass().getResource("/trabalhocg/translacao.png"));
+        ImageIcon imgTranslacao = new ImageIcon(getClass().getResource("/imagens/translacao.png"));
         translacao = new javax.swing.JButton("",imgTranslacao);
-        ImageIcon imgEscala = new ImageIcon(getClass().getResource("/trabalhocg/escala.png"));
+        ImageIcon imgEscala = new ImageIcon(getClass().getResource("/imagens/escala.png"));
         escala = new javax.swing.JButton("",imgEscala);
-        ImageIcon imgZoomExtend = new ImageIcon(getClass().getResource("/trabalhocg/zoomextend.png"));
+        ImageIcon imgZoomExtend = new ImageIcon(getClass().getResource("/imagens/zoomextend.png"));
         zoomExtend = new javax.swing.JButton("",imgZoomExtend);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -169,6 +169,7 @@ public class viewTrabalho extends javax.swing.JFrame {
         g1.setColor(Color.white);
         g1.fillRect(0,0, painel.getWidth(), painel.getHeight());
         
+        
         g1.setColor(Color.black);
         g1.setClip(0,0, painel.getWidth(), painel.getHeight());
         
@@ -190,6 +191,7 @@ public class viewTrabalho extends javax.swing.JFrame {
 
     private void limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparActionPerformed
         painel.repaint();
+        painel.setBackground(Color.white);
     }//GEN-LAST:event_limparActionPerformed
 
     private void drawTriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawTriActionPerformed
