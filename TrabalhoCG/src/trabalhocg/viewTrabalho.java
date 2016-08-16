@@ -6,6 +6,7 @@
 package trabalhocg;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
@@ -17,6 +18,8 @@ import javax.swing.JButton;
  */
 public class viewTrabalho extends javax.swing.JFrame {
 
+    
+    
     escolhaDePoligono escolha;
     
     
@@ -25,8 +28,11 @@ public class viewTrabalho extends javax.swing.JFrame {
      * Creates new form viewTrabalho
      */
     public viewTrabalho() {
+        //this.getContentPane().setBackground(Color.LIGHT_GRAY);
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         initComponents();
         painel.setBackground(Color.white);
+        
     }
 
     /**
@@ -97,6 +103,27 @@ public class viewTrabalho extends javax.swing.JFrame {
         drawTri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drawTriActionPerformed(evt);
+            }
+        });
+
+        rotacao.setBackground(new java.awt.Color(94, 170, 168));
+        rotacao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(18, 62, 201), 4, true));
+        rotacao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        rotacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rotacaoActionPerformed(evt);
+            }
+        });
+
+        translacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                translacaoActionPerformed(evt);
+            }
+        });
+
+        escala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                escalaActionPerformed(evt);
             }
         });
 
@@ -211,6 +238,18 @@ public class viewTrabalho extends javax.swing.JFrame {
         escolha = new escolhaDePoligono(2,painel);
         escolha.setVisible(true);
     }//GEN-LAST:event_drawLineActionPerformed
+
+    private void translacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_translacaoActionPerformed
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_translacaoActionPerformed
+
+    private void escalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escalaActionPerformed
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
+    }//GEN-LAST:event_escalaActionPerformed
+
+    private void rotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rotacaoActionPerformed
 
     /**
      * @param args the command line arguments
