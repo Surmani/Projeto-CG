@@ -8,6 +8,7 @@ package trabalhocg;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Optional;
@@ -59,7 +60,7 @@ public class viewTrabalho extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        escalaFrame = new javax.swing.JDialog();
+        escalaDialog = new javax.swing.JDialog();
         OK_Escala = new javax.swing.JButton();
         Cancel_Escala = new javax.swing.JButton();
         TextSx = new javax.swing.JFormattedTextField();
@@ -84,7 +85,8 @@ public class viewTrabalho extends javax.swing.JFrame {
         ImageIcon imgZoomExtend = new ImageIcon(getClass().getResource("/imagens/zoomextend.png"));
         zoomExtend = new javax.swing.JButton("",imgZoomExtend);
 
-        escalaFrame.setName("escala dialog"); // NOI18N
+        escalaDialog.setName("escala dialog"); // NOI18N
+        escalaDialog.setResizable(false);
 
         OK_Escala.setText("OK");
         OK_Escala.addActionListener(new java.awt.event.ActionListener() {
@@ -108,40 +110,40 @@ public class viewTrabalho extends javax.swing.JFrame {
 
         jLabel2.setText("Escala Y:");
 
-        javax.swing.GroupLayout escalaFrameLayout = new javax.swing.GroupLayout(escalaFrame.getContentPane());
-        escalaFrame.getContentPane().setLayout(escalaFrameLayout);
-        escalaFrameLayout.setHorizontalGroup(
-            escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escalaFrameLayout.createSequentialGroup()
+        javax.swing.GroupLayout escalaDialogLayout = new javax.swing.GroupLayout(escalaDialog.getContentPane());
+        escalaDialog.getContentPane().setLayout(escalaDialogLayout);
+        escalaDialogLayout.setHorizontalGroup(
+            escalaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escalaDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(escalaFrameLayout.createSequentialGroup()
-                        .addGroup(escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(escalaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(escalaDialogLayout.createSequentialGroup()
+                        .addGroup(escalaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(OK_Escala, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(escalaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TextSx, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Cancel_Escala, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(escalaFrameLayout.createSequentialGroup()
+                    .addGroup(escalaDialogLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(TextSy, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-        escalaFrameLayout.setVerticalGroup(
-            escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escalaFrameLayout.createSequentialGroup()
+        escalaDialogLayout.setVerticalGroup(
+            escalaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escalaDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(escalaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(escalaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextSy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(escalaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(escalaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(OK_Escala)
                     .addComponent(Cancel_Escala))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -382,17 +384,18 @@ public class viewTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_painelMouseDragged
 
     private void escalaActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        escalaFrame.setVisible(true);
-        escalaFrame.pack();
+        escalaDialog.pack();
+        escalaDialog.setLocationRelativeTo(null);
+        escalaDialog.setVisible(true);
     }                                      
 
     private void Cancel_EscalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel_EscalaActionPerformed
-        escalaFrame.dispose();
+        escalaDialog.dispose();
     }//GEN-LAST:event_Cancel_EscalaActionPerformed
 
     private void OK_EscalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OK_EscalaActionPerformed
         if(!desenho.isPresent()) {
-            escalaFrame.dispose();
+            escalaDialog.dispose();
             return;
         }
         Poligono des = desenho.get();
@@ -419,7 +422,7 @@ public class viewTrabalho extends javax.swing.JFrame {
 
         des.scale(new Ponto2D(0,0), Sx, Sy);
         desenhar();
-        escalaFrame.dispose();
+        escalaDialog.dispose();
     }//GEN-LAST:event_OK_EscalaActionPerformed
 
     private void rotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotacaoActionPerformed
@@ -468,7 +471,7 @@ public class viewTrabalho extends javax.swing.JFrame {
     private javax.swing.JButton drawRect;
     private javax.swing.JButton drawTri;
     private javax.swing.JButton escala;
-    private javax.swing.JDialog escalaFrame;
+    private javax.swing.JDialog escalaDialog;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton limpar;

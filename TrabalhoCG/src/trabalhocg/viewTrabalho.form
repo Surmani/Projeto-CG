@@ -2,9 +2,10 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Container class="javax.swing.JDialog" name="escalaFrame">
+    <Container class="javax.swing.JDialog" name="escalaDialog">
       <Properties>
         <Property name="name" type="java.lang.String" value="escala dialog" noResource="true"/>
+        <Property name="resizable" type="boolean" value="false"/>
       </Properties>
 
       <Layout>
