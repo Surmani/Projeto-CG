@@ -202,15 +202,13 @@ public class viewTrabalho extends javax.swing.JFrame {
             }
         });
 
-       rotacao.setBackground(new java.awt.Color(94, 170, 168));
-        rotacao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(18, 62, 201), 4, true));
         rotacao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         rotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rotacaoActionPerformed(evt);
             }
         });
-        
+
         translacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 translacaoActionPerformed(evt);
