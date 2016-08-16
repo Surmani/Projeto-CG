@@ -234,7 +234,7 @@ public class Poligono {
     }
     
     public double[][] getJanelaVisualizacao() {
-        return getJanelaVisualizacao(0);
+        return getJanelaVisualizacao(0.2);
     }
 
     /**
@@ -244,6 +244,8 @@ public class Poligono {
      */
     public double[][] getJanelaVisualizacao(double padding) {
         double[][] lim = getLimits();
+        
+        printMatrix(lim);
         
         
         double pad_x = (padding) * Math.abs(lim[0][1] - lim[0][0]);
@@ -260,6 +262,7 @@ public class Poligono {
         lim[1][1] = lim[1][1] + pad_y;
         
         
+        printMatrix(lim);
         return lim;
     }
     
@@ -290,12 +293,25 @@ public class Poligono {
         }
     }
     
+    public double[][] transJanelaViewport(double height) 
+    {   
+        double[][] tjv = {
+            {1, 0, 0},
+            {0, -1, height},
+            {0,0,1}
+        };
+        
+        double[][] res = multMatrix(tjv, coord);
+        
+        return res;
+    }
+    
     /**
      * Realiza uma transformacao janela-viewport sem contar o aspect ratio
      * @param g
      * @return 
      */
-    public double[][] transfJanelaViewport(Graphics g) {
+    public double[][] tjv_zoom(Graphics g) {
         double[][] janela = getJanelaVisualizacao();
         int[][] PDCS = getPDCS(g);
         

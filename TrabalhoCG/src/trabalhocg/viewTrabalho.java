@@ -7,6 +7,7 @@ package trabalhocg;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -157,10 +158,9 @@ public class viewTrabalho extends javax.swing.JFrame {
         
         Poligono p = new Poligono(
                 new Ponto2D[] {
-                    new Ponto2D(1,1),
-                    new Ponto2D(2,1),
-                    new Ponto2D(2,2),
-                    new Ponto2D(1,2)
+                    new Ponto2D(0,0),
+                    new Ponto2D(0, 200),
+                    new Ponto2D(200,0)
                 }
         );
         
@@ -171,18 +171,16 @@ public class viewTrabalho extends javax.swing.JFrame {
         
         
         g1.setColor(Color.black);
-        g1.setClip(0,0, painel.getWidth(), painel.getHeight());
         
-        
-        double[][] coords = p.transfJanelaViewport(g1);
-        
+        double[][] coords = p.transJanelaViewport(painel.getHeight()-1);
+        Poligono.printMatrix(coords);
         int[] xs;
         xs = new int[coords[0].length];
         int[] ys;
         ys = new int[coords[0].length];
         for(int i = 0; i < coords[0].length; i++) {
             xs[i] = (int) Math.round(coords[0][i]);
-            ys[i] = -(int) Math.round(coords[1][i]);
+            ys[i] = (int) Math.round(coords[1][i]);
         }
         
         g1.drawPolygon(xs, ys, coords[0].length);
