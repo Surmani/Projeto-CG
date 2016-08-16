@@ -6,7 +6,7 @@
 package trabalhocg;
 
 import java.awt.Color;
-import java.awt.Frame;
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -43,8 +43,11 @@ public class viewTrabalho extends javax.swing.JFrame {
      * Creates new form viewTrabalho
      */
     public viewTrabalho() {
+        //this.getContentPane().setBackground(Color.LIGHT_GRAY);
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         initComponents();
         painel.setBackground(Color.white);
+        
     }
 
     /**
@@ -199,6 +202,15 @@ public class viewTrabalho extends javax.swing.JFrame {
             }
         });
 
+       rotacao.setBackground(new java.awt.Color(94, 170, 168));
+        rotacao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(18, 62, 201), 4, true));
+        rotacao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        rotacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rotacaoActionPerformed(evt);
+            }
+        });
+        
         translacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 translacaoActionPerformed(evt);
@@ -338,13 +350,15 @@ public class viewTrabalho extends javax.swing.JFrame {
         
     }//GEN-LAST:event_painelMouseReleased
 
-    private void translacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_translacaoActionPerformed
+    private void translacaoActionPerformed(java.awt.event.ActionEvent evt) {                                           
         if(mouseState != MouseState.MOUSE_TRANSLACAO) {
             mouseState = MouseState.MOUSE_TRANSLACAO;
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         } else{
             mouseState = MouseState.MOUSE_NORMAL;
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         }
-    }//GEN-LAST:event_translacaoActionPerformed
+    }                                          
     
     private void painelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseDragged
         if(!desenho.isPresent()) return;
@@ -369,10 +383,10 @@ public class viewTrabalho extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_painelMouseDragged
 
-    private void escalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escalaActionPerformed
+    private void escalaActionPerformed(java.awt.event.ActionEvent evt) {                                       
         escalaFrame.setVisible(true);
         escalaFrame.pack();
-    }//GEN-LAST:event_escalaActionPerformed
+    }                                      
 
     private void Cancel_EscalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel_EscalaActionPerformed
         escalaFrame.dispose();
@@ -409,6 +423,10 @@ public class viewTrabalho extends javax.swing.JFrame {
         desenhar();
         escalaFrame.dispose();
     }//GEN-LAST:event_OK_EscalaActionPerformed
+
+    private void rotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rotacaoActionPerformed
 
     /**
      * @param args the command line arguments
