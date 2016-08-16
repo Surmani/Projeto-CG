@@ -234,7 +234,7 @@ public class Poligono {
     }
     
     public double[][] getJanelaVisualizacao() {
-        return getJanelaVisualizacao(0);
+        return getJanelaVisualizacao(0.2);
     }
 
     /**
