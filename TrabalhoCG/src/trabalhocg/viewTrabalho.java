@@ -5,6 +5,7 @@
  */
 package trabalhocg;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -154,6 +155,37 @@ public class viewTrabalho extends javax.swing.JFrame {
         escolha = new escolhaDePoligono(4,painel);
         escolha.setVisible(true);
         
+        Poligono p = new Poligono(
+                new Ponto2D[] {
+                    new Ponto2D(1,1),
+                    new Ponto2D(2,1),
+                    new Ponto2D(2,2),
+                    new Ponto2D(1,2)
+                }
+        );
+        
+        
+        Graphics g1 = painel.getGraphics();
+        g1.setColor(Color.white);
+        g1.fillRect(0,0, painel.getWidth(), painel.getHeight());
+        
+        g1.setColor(Color.black);
+        g1.setClip(0,0, painel.getWidth(), painel.getHeight());
+        
+        
+        double[][] coords = p.transfJanelaViewport(g1);
+        
+        int[] xs;
+        xs = new int[coords[0].length];
+        int[] ys;
+        ys = new int[coords[0].length];
+        for(int i = 0; i < coords[0].length; i++) {
+            xs[i] = (int) Math.round(coords[0][i]);
+            ys[i] = -(int) Math.round(coords[1][i]);
+        }
+        
+        g1.drawPolygon(xs, ys, coords[0].length);
+        
     }//GEN-LAST:event_drawRectActionPerformed
 
     private void limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparActionPerformed
@@ -163,19 +195,6 @@ public class viewTrabalho extends javax.swing.JFrame {
     private void drawTriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawTriActionPerformed
         escolha = new escolhaDePoligono(3,painel);
         escolha.setVisible(true);
-        
-        /*Graphics graphics = painelDraw.getGraphics();
-        int[] xPoints = new int[3];
-        int[] yPoints = new int[3];
-        xPoints[0] = 40;
-        yPoints[0] = 40;
-        xPoints[1] = 40;
-        yPoints[1] = 100;
-        xPoints[2] = 200;
-        yPoints[2] = 40;
-        
-        graphics.drawPolygon(xPoints, yPoints, 3);
-        */
     }//GEN-LAST:event_drawTriActionPerformed
 
     private void painelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseClicked
