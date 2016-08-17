@@ -29,26 +29,23 @@ public class viewTrabalho extends javax.swing.JFrame {
         MOUSE_ESCALA,
         MOUSE_TRANSLACAO
     }
-    
-    escolhaDePoligono escolha;
-    
+
     private MouseState mouseState = MouseState.MOUSE_NORMAL;
-    
+
     private Optional<Poligono> desenho = Optional.empty();
-    
-    
+
     private int lastX;
     private int lastY;
-    
+
     /**
      * Creates new form viewTrabalho
      */
     public viewTrabalho() {
-        //this.getContentPane().setBackground(Color.LIGHT_GRAY);
+        this.getContentPane().setBackground(new Color(160,180,220));
         this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         initComponents();
         painel.setBackground(Color.white);
-        
+
     }
 
     /**
@@ -67,6 +64,48 @@ public class viewTrabalho extends javax.swing.JFrame {
         TextSy = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        escolhaRetaDialog = new javax.swing.JDialog();
+        ponto1Y = new javax.swing.JTextField();
+        ponto2Y = new javax.swing.JTextField();
+        ponto2X = new javax.swing.JTextField();
+        nomePoligono = new javax.swing.JLabel();
+        ponto1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        ponto2 = new javax.swing.JLabel();
+        confirmarEscolhaReta = new javax.swing.JButton();
+        cancelarEscolhaReta = new javax.swing.JButton();
+        ponto1X = new javax.swing.JTextField();
+        escolhaTrianguloDialog = new javax.swing.JDialog();
+        ponto1Ytri = new javax.swing.JTextField();
+        ponto2Ytri = new javax.swing.JTextField();
+        ponto2Xtri = new javax.swing.JTextField();
+        ponto3Ytri = new javax.swing.JTextField();
+        nomePoligono1 = new javax.swing.JLabel();
+        ponto3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        ponto3Xtri = new javax.swing.JTextField();
+        ponto4 = new javax.swing.JLabel();
+        confirmarTriangulo = new javax.swing.JButton();
+        ponto5 = new javax.swing.JLabel();
+        cancelarTriangulo = new javax.swing.JButton();
+        ponto1Xtri = new javax.swing.JTextField();
+        escolhaRetanguloDialog = new javax.swing.JDialog();
+        ponto1Yret = new javax.swing.JTextField();
+        ponto2Yret = new javax.swing.JTextField();
+        ponto2Xret = new javax.swing.JTextField();
+        ponto3Yret = new javax.swing.JTextField();
+        nomePoligono2 = new javax.swing.JLabel();
+        ponto4Xret = new javax.swing.JTextField();
+        ponto6 = new javax.swing.JLabel();
+        ponto4Yret = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        ponto3Xret = new javax.swing.JTextField();
+        ponto7 = new javax.swing.JLabel();
+        confirmarRetangulo = new javax.swing.JButton();
+        ponto8 = new javax.swing.JLabel();
+        cancelarRetangulo = new javax.swing.JButton();
+        ponto9 = new javax.swing.JLabel();
+        ponto1Xret = new javax.swing.JTextField();
         painel = new javax.swing.JPanel();
         ImageIcon imgReta = new ImageIcon(getClass().getResource("/imagens/reta.png"));
         drawLine = new javax.swing.JButton("",imgReta);
@@ -149,9 +188,294 @@ public class viewTrabalho extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        escolhaRetaDialog.setResizable(false);
 
-        painel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nomePoligono.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        nomePoligono.setText("Coordenadas da Reta");
+
+        ponto1.setText("Ponto 1:");
+
+        jLabel3.setText("X                   Y");
+
+        ponto2.setText("Ponto 2:");
+
+        confirmarEscolhaReta.setText("Confirmar");
+        confirmarEscolhaReta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarEscolhaRetaActionPerformed(evt);
+            }
+        });
+
+        cancelarEscolhaReta.setText("Cancelar");
+        cancelarEscolhaReta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarEscolhaRetaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout escolhaRetaDialogLayout = new javax.swing.GroupLayout(escolhaRetaDialog.getContentPane());
+        escolhaRetaDialog.getContentPane().setLayout(escolhaRetaDialogLayout);
+        escolhaRetaDialogLayout.setHorizontalGroup(
+            escolhaRetaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escolhaRetaDialogLayout.createSequentialGroup()
+                .addGroup(escolhaRetaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(escolhaRetaDialogLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(escolhaRetaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, escolhaRetaDialogLayout.createSequentialGroup()
+                                .addGroup(escolhaRetaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ponto2)
+                                    .addComponent(ponto1))
+                                .addGap(42, 42, 42)
+                                .addGroup(escolhaRetaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(escolhaRetaDialogLayout.createSequentialGroup()
+                                        .addGroup(escolhaRetaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(ponto2X, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ponto1X, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(28, 28, 28)
+                                        .addGroup(escolhaRetaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ponto1Y, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ponto2Y, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escolhaRetaDialogLayout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(15, 15, 15))))
+                            .addComponent(nomePoligono, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addGroup(escolhaRetaDialogLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(confirmarEscolhaReta, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(cancelarEscolhaReta, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        escolhaRetaDialogLayout.setVerticalGroup(
+            escolhaRetaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escolhaRetaDialogLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(nomePoligono)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addGroup(escolhaRetaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ponto1X, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto1Y, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto1))
+                .addGap(18, 18, 18)
+                .addGroup(escolhaRetaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ponto2Y, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto2X, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto2))
+                .addGap(35, 35, 35)
+                .addGroup(escolhaRetaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelarEscolhaReta)
+                    .addComponent(confirmarEscolhaReta))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        escolhaTrianguloDialog.setResizable(false);
+
+        nomePoligono1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        nomePoligono1.setText("Coordenadas do Triangulo");
+
+        ponto3.setText("Ponto 1:");
+
+        jLabel4.setText("X                   Y");
+
+        ponto4.setText("Ponto 2:");
+
+        confirmarTriangulo.setText("Confirmar");
+        confirmarTriangulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarTrianguloActionPerformed(evt);
+            }
+        });
+
+        ponto5.setText("Ponto 3:");
+
+        cancelarTriangulo.setText("Cancelar");
+        cancelarTriangulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarTrianguloActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout escolhaTrianguloDialogLayout = new javax.swing.GroupLayout(escolhaTrianguloDialog.getContentPane());
+        escolhaTrianguloDialog.getContentPane().setLayout(escolhaTrianguloDialogLayout);
+        escolhaTrianguloDialogLayout.setHorizontalGroup(
+            escolhaTrianguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escolhaTrianguloDialogLayout.createSequentialGroup()
+                .addGroup(escolhaTrianguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(escolhaTrianguloDialogLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(escolhaTrianguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ponto5)
+                            .addComponent(ponto4)
+                            .addComponent(ponto3))
+                        .addGap(42, 42, 42)
+                        .addGroup(escolhaTrianguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(escolhaTrianguloDialogLayout.createSequentialGroup()
+                                .addGroup(escolhaTrianguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(ponto3Xtri, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ponto2Xtri, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ponto1Xtri, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(28, 28, 28)
+                                .addGroup(escolhaTrianguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ponto1Ytri, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ponto2Ytri, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ponto3Ytri, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escolhaTrianguloDialogLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(15, 15, 15))))
+                    .addGroup(escolhaTrianguloDialogLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(confirmarTriangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(cancelarTriangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(escolhaTrianguloDialogLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(nomePoligono1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        escolhaTrianguloDialogLayout.setVerticalGroup(
+            escolhaTrianguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escolhaTrianguloDialogLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(nomePoligono1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(escolhaTrianguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ponto1Xtri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto1Ytri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto3))
+                .addGap(18, 18, 18)
+                .addGroup(escolhaTrianguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ponto2Ytri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto2Xtri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto4))
+                .addGap(18, 18, 18)
+                .addGroup(escolhaTrianguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ponto3Ytri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(escolhaTrianguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ponto3Xtri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ponto5)))
+                .addGap(18, 18, 18)
+                .addGroup(escolhaTrianguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelarTriangulo)
+                    .addComponent(confirmarTriangulo))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        nomePoligono2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        nomePoligono2.setText("Coordenadas Retangulo");
+
+        ponto6.setText("Ponto 1:");
+
+        jLabel5.setText("X                   Y");
+
+        ponto3Xret.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ponto3XretActionPerformed(evt);
+            }
+        });
+
+        ponto7.setText("Ponto 2:");
+
+        confirmarRetangulo.setText("Confirmar");
+        confirmarRetangulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarRetanguloActionPerformed(evt);
+            }
+        });
+
+        ponto8.setText("Ponto 3:");
+
+        cancelarRetangulo.setText("Cancelar");
+        cancelarRetangulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarRetanguloActionPerformed(evt);
+            }
+        });
+
+        ponto9.setText("Ponto 4:");
+
+        javax.swing.GroupLayout escolhaRetanguloDialogLayout = new javax.swing.GroupLayout(escolhaRetanguloDialog.getContentPane());
+        escolhaRetanguloDialog.getContentPane().setLayout(escolhaRetanguloDialogLayout);
+        escolhaRetanguloDialogLayout.setHorizontalGroup(
+            escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escolhaRetanguloDialogLayout.createSequentialGroup()
+                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(escolhaRetanguloDialogLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, escolhaRetanguloDialogLayout.createSequentialGroup()
+                                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ponto9)
+                                    .addComponent(ponto8)
+                                    .addComponent(ponto7)
+                                    .addComponent(ponto6))
+                                .addGap(42, 42, 42)
+                                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(escolhaRetanguloDialogLayout.createSequentialGroup()
+                                        .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(ponto4Xret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ponto3Xret, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ponto2Xret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ponto1Xret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(28, 28, 28)
+                                        .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ponto1Yret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ponto2Yret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ponto3Yret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ponto4Yret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escolhaRetanguloDialogLayout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(15, 15, 15))))
+                            .addComponent(nomePoligono2, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addGroup(escolhaRetanguloDialogLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(confirmarRetangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(cancelarRetangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, Short.MAX_VALUE))
+        );
+        escolhaRetanguloDialogLayout.setVerticalGroup(
+            escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escolhaRetanguloDialogLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(nomePoligono2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ponto1Xret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto1Yret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto6))
+                .addGap(18, 18, 18)
+                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ponto2Yret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto2Xret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto7))
+                .addGap(18, 18, 18)
+                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ponto3Yret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ponto3Xret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ponto8)))
+                .addGap(18, 18, 18)
+                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ponto4Xret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto4Yret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ponto9))
+                .addGap(36, 36, 36)
+                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelarRetangulo)
+                    .addComponent(confirmarRetangulo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
         painel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 painelMouseDragged(evt);
@@ -173,11 +497,11 @@ public class viewTrabalho extends javax.swing.JFrame {
         painel.setLayout(painelLayout);
         painelLayout.setHorizontalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         painelLayout.setVerticalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
         drawLine.addActionListener(new java.awt.event.ActionListener() {
@@ -229,13 +553,15 @@ public class viewTrabalho extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(drawRect, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(drawTri, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(drawLine, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(drawLine, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(drawRect, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(drawTri, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -245,80 +571,67 @@ public class viewTrabalho extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(zoomExtend, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(escala, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(rotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(translacao, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(zoomExtend, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(escala, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rotacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(translacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(zoomExtend, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(limpar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(drawLine, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(drawRect, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(drawTri, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56))
+                        .addComponent(drawTri, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37))))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    private void desenhar()
-    {
-        if(!desenho.isPresent()) return;
+    private void desenhar() {
+        if (!desenho.isPresent()) {
+            return;
+        }
         Poligono des = desenho.get();
-        
+
         Graphics g1 = painel.getGraphics();
         g1.setColor(Color.white);
-        g1.fillRect(0,0, painel.getWidth(), painel.getHeight());
-        
+        g1.fillRect(0, 0, painel.getWidth(), painel.getHeight());
+
         g1.setColor(Color.black);
-        
-        
-        double[][] coords = des.transJanelaViewport(painel.getHeight()-1);
+
+        double[][] coords = des.transJanelaViewport(painel.getHeight() - 1);
 
         int[] xs;
         xs = new int[coords[0].length];
         int[] ys;
         ys = new int[coords[0].length];
-        for(int i = 0; i < coords[0].length; i++) {
+        for (int i = 0; i < coords[0].length; i++) {
             xs[i] = (int) Math.round(coords[0][i]);
             ys[i] = (int) Math.round(coords[1][i]);
         }
-        
+
         g1.drawPolygon(xs, ys, coords[0].length);
-        
+
     }
-    
+
     private void drawRectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawRectActionPerformed
-        //escolha = new escolhaDePoligono(4,painel);
-        //escolha.setVisible(true);
-        
-        desenho = Optional.of(
-            new Poligono(
-                    new Ponto2D[] {
-                        new Ponto2D(0,0),
-                        new Ponto2D(0, 200),
-                        new Ponto2D(200,0)
-                    }
-            )
-        );
-        
-        desenhar();
-        
+        escolhaRetanguloDialog.pack();
+        escolhaRetanguloDialog.setLocationRelativeTo(null);
+        escolhaRetanguloDialog.setVisible(true);
     }//GEN-LAST:event_drawRectActionPerformed
 
     private void limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparActionPerformed
@@ -328,8 +641,9 @@ public class viewTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_limparActionPerformed
 
     private void drawTriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawTriActionPerformed
-        escolha = new escolhaDePoligono(3,painel);
-        escolha.setVisible(true);
+        escolhaTrianguloDialog.pack();
+        escolhaTrianguloDialog.setLocationRelativeTo(null);
+        escolhaTrianguloDialog.setVisible(true);
     }//GEN-LAST:event_drawTriActionPerformed
 
     private void painelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseClicked
@@ -337,8 +651,9 @@ public class viewTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_painelMouseClicked
 
     private void drawLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawLineActionPerformed
-        escolha = new escolhaDePoligono(2,painel);
-        escolha.setVisible(true);
+        escolhaRetaDialog.pack();
+        escolhaRetaDialog.setLocationRelativeTo(null);
+        escolhaRetaDialog.setVisible(true);
     }//GEN-LAST:event_drawLineActionPerformed
 
     private void painelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMousePressed
@@ -347,35 +662,37 @@ public class viewTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_painelMousePressed
 
     private void painelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseReleased
-        
+
     }//GEN-LAST:event_painelMouseReleased
 
-    private void translacaoActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        if(mouseState != MouseState.MOUSE_TRANSLACAO) {
+    private void translacaoActionPerformed(java.awt.event.ActionEvent evt) {
+        if (mouseState != MouseState.MOUSE_TRANSLACAO) {
             mouseState = MouseState.MOUSE_TRANSLACAO;
             this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        } else{
+        } else {
             mouseState = MouseState.MOUSE_NORMAL;
             this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         }
-    }                                          
-    
+    }
+
     private void painelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseDragged
-        if(!desenho.isPresent()) return;
+        if (!desenho.isPresent()) {
+            return;
+        }
         Poligono des = desenho.get();
-        
+
         int deltaX = (evt.getX() - lastX);
         int deltaY = (evt.getY() - lastY);
         lastX = evt.getX();
         lastY = evt.getY();
-        
-        switch(mouseState) {
+
+        switch (mouseState) {
             case MOUSE_TRANSLACAO:
-                if(deltaX != 0 || deltaY != 0) {
+                if (deltaX != 0 || deltaY != 0) {
                     des.translate(deltaX, -deltaY);
                     desenhar();
                 }
-                
+
                 break;
             case MOUSE_NORMAL:
             default:
@@ -383,44 +700,43 @@ public class viewTrabalho extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_painelMouseDragged
 
-    private void escalaActionPerformed(java.awt.event.ActionEvent evt) {                                       
+    private void escalaActionPerformed(java.awt.event.ActionEvent evt) {
         escalaDialog.pack();
         escalaDialog.setLocationRelativeTo(null);
         escalaDialog.setVisible(true);
-    }                                      
+    }
 
     private void Cancel_EscalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancel_EscalaActionPerformed
         escalaDialog.dispose();
     }//GEN-LAST:event_Cancel_EscalaActionPerformed
 
     private void OK_EscalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OK_EscalaActionPerformed
-        if(!desenho.isPresent()) {
+        if (!desenho.isPresent()) {
             escalaDialog.dispose();
             return;
         }
         Poligono des = desenho.get();
-        
-        
+
         double Sx = 1.0;
         double Sy = 1.0;
-        try{
+        try {
             NumberFormat fmt = NumberFormat.getInstance();
             Number num = fmt.parse(TextSx.getText());
             Sx = num.doubleValue();
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
         } catch (ParseException ex) {
             Logger.getLogger(viewTrabalho.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try{
+        try {
             NumberFormat fmt = NumberFormat.getInstance();
             Number num = fmt.parse(TextSy.getText());
             Sy = num.doubleValue();
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
         } catch (ParseException ex) {
             Logger.getLogger(viewTrabalho.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        des.scale(new Ponto2D(0,0), Sx, Sy);
+        des.scale(new Ponto2D(0, 0), Sx, Sy);
         desenhar();
         escalaDialog.dispose();
     }//GEN-LAST:event_OK_EscalaActionPerformed
@@ -428,6 +744,79 @@ public class viewTrabalho extends javax.swing.JFrame {
     private void rotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rotacaoActionPerformed
+
+    private void confirmarEscolhaRetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarEscolhaRetaActionPerformed
+        try {
+            desenho = Optional.of(
+                    new Poligono(new Ponto2D[]{
+                new Ponto2D(Integer.parseInt(ponto1X.getText()), Integer.parseInt(ponto1Y.getText())),
+                new Ponto2D(Integer.parseInt(ponto2X.getText()), Integer.parseInt(ponto2Y.getText()))
+            }));
+
+            desenhar();
+            
+            escolhaRetaDialog.dispose();
+            
+        } catch (NumberFormatException ex) {
+
+            JOptionPane.showMessageDialog(null, "Deve colocar apenas números", "Alerta", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_confirmarEscolhaRetaActionPerformed
+
+    private void cancelarEscolhaRetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEscolhaRetaActionPerformed
+        escolhaRetaDialog.dispose();
+    }//GEN-LAST:event_cancelarEscolhaRetaActionPerformed
+
+    private void confirmarTrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarTrianguloActionPerformed
+        try {
+            desenho = Optional.of(
+                    new Poligono(new Ponto2D[]{
+                new Ponto2D(Integer.parseInt(ponto1Xtri.getText()), Integer.parseInt(ponto1Ytri.getText())),
+                new Ponto2D(Integer.parseInt(ponto2Xtri.getText()), Integer.parseInt(ponto2Ytri.getText())),
+                new Ponto2D(Integer.parseInt(ponto3Xtri.getText()), Integer.parseInt(ponto3Ytri.getText()))
+            }));
+
+            desenhar();
+            
+            escolhaTrianguloDialog.dispose();
+            
+        } catch (NumberFormatException ex) {
+
+            JOptionPane.showMessageDialog(null, "Deve colocar apenas números", "Alerta", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_confirmarTrianguloActionPerformed
+
+    private void cancelarTrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarTrianguloActionPerformed
+        escolhaTrianguloDialog.dispose();
+    }//GEN-LAST:event_cancelarTrianguloActionPerformed
+
+    private void confirmarRetanguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarRetanguloActionPerformed
+        try {
+            desenho = Optional.of(
+                    new Poligono(new Ponto2D[]{
+                new Ponto2D(Integer.parseInt(ponto1Xret.getText()), Integer.parseInt(ponto1Yret.getText())),
+                new Ponto2D(Integer.parseInt(ponto2Xret.getText()), Integer.parseInt(ponto2Yret.getText())),
+                new Ponto2D(Integer.parseInt(ponto3Xret.getText()), Integer.parseInt(ponto3Yret.getText())),
+                new Ponto2D(Integer.parseInt(ponto4Xret.getText()), Integer.parseInt(ponto4Yret.getText()))
+            }));
+
+            desenhar();
+            
+            escolhaRetanguloDialog.dispose();
+            
+        } catch (NumberFormatException ex) {
+
+            JOptionPane.showMessageDialog(null, "Deve colocar apenas números", "Alerta", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_confirmarRetanguloActionPerformed
+
+    private void cancelarRetanguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarRetanguloActionPerformed
+        escolhaRetanguloDialog.dispose();
+    }//GEN-LAST:event_cancelarRetanguloActionPerformed
+
+    private void ponto3XretActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ponto3XretActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ponto3XretActionPerformed
 
     /**
      * @param args the command line arguments
@@ -467,15 +856,57 @@ public class viewTrabalho extends javax.swing.JFrame {
     private javax.swing.JButton OK_Escala;
     private javax.swing.JFormattedTextField TextSx;
     private javax.swing.JFormattedTextField TextSy;
+    private javax.swing.JButton cancelarEscolhaReta;
+    private javax.swing.JButton cancelarRetangulo;
+    private javax.swing.JButton cancelarTriangulo;
+    private javax.swing.JButton confirmarEscolhaReta;
+    private javax.swing.JButton confirmarRetangulo;
+    private javax.swing.JButton confirmarTriangulo;
     private javax.swing.JButton drawLine;
     private javax.swing.JButton drawRect;
     private javax.swing.JButton drawTri;
     private javax.swing.JButton escala;
     private javax.swing.JDialog escalaDialog;
+    private javax.swing.JDialog escolhaRetaDialog;
+    private javax.swing.JDialog escolhaRetanguloDialog;
+    private javax.swing.JDialog escolhaTrianguloDialog;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JButton limpar;
+    private javax.swing.JLabel nomePoligono;
+    private javax.swing.JLabel nomePoligono1;
+    private javax.swing.JLabel nomePoligono2;
     public javax.swing.JPanel painel;
+    private javax.swing.JLabel ponto1;
+    private javax.swing.JTextField ponto1X;
+    private javax.swing.JTextField ponto1Xret;
+    private javax.swing.JTextField ponto1Xtri;
+    private javax.swing.JTextField ponto1Y;
+    private javax.swing.JTextField ponto1Yret;
+    private javax.swing.JTextField ponto1Ytri;
+    private javax.swing.JLabel ponto2;
+    private javax.swing.JTextField ponto2X;
+    private javax.swing.JTextField ponto2Xret;
+    private javax.swing.JTextField ponto2Xtri;
+    private javax.swing.JTextField ponto2Y;
+    private javax.swing.JTextField ponto2Yret;
+    private javax.swing.JTextField ponto2Ytri;
+    private javax.swing.JLabel ponto3;
+    private javax.swing.JTextField ponto3Xret;
+    private javax.swing.JTextField ponto3Xtri;
+    private javax.swing.JTextField ponto3Yret;
+    private javax.swing.JTextField ponto3Ytri;
+    private javax.swing.JLabel ponto4;
+    private javax.swing.JTextField ponto4Xret;
+    private javax.swing.JTextField ponto4Yret;
+    private javax.swing.JLabel ponto5;
+    private javax.swing.JLabel ponto6;
+    private javax.swing.JLabel ponto7;
+    private javax.swing.JLabel ponto8;
+    private javax.swing.JLabel ponto9;
     private javax.swing.JButton rotacao;
     private javax.swing.JButton translacao;
     private javax.swing.JButton zoomExtend;

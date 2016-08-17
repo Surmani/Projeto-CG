@@ -101,9 +101,457 @@
         </Component>
       </SubComponents>
     </Container>
+    <Container class="javax.swing.JDialog" name="escolhaRetaDialog">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="ponto2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ponto1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="ponto2X" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="ponto1X" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="ponto1Y" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="ponto2Y" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Component id="nomePoligono" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="confirmarEscolhaReta" min="-2" pref="110" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="cancelarEscolhaReta" min="-2" pref="110" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="50" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="nomePoligono" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ponto1X" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto1Y" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ponto2Y" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto2X" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cancelarEscolhaReta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="confirmarEscolhaReta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="23" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="ponto1Y">
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto2Y">
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto2X">
+        </Component>
+        <Component class="javax.swing.JLabel" name="nomePoligono">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Ubuntu" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Coordenadas da Reta"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ponto1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ponto 1:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="X                   Y"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ponto2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ponto 2:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="confirmarEscolhaReta">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Confirmar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmarEscolhaRetaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="cancelarEscolhaReta">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancelar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarEscolhaRetaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto1X">
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="escolhaTrianguloDialog">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ponto5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="ponto4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="ponto3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="ponto3Xtri" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="ponto2Xtri" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="ponto1Xtri" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="ponto1Ytri" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="ponto2Ytri" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="ponto3Ytri" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="confirmarTriangulo" min="-2" pref="110" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <Component id="cancelarTriangulo" min="-2" pref="110" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          <Component id="nomePoligono1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="nomePoligono1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ponto1Xtri" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto1Ytri" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ponto2Ytri" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto2Xtri" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="ponto3Ytri" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="ponto3Xtri" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ponto5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cancelarTriangulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="confirmarTriangulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="21" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="ponto1Ytri">
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto2Ytri">
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto2Xtri">
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto3Ytri">
+        </Component>
+        <Component class="javax.swing.JLabel" name="nomePoligono1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Ubuntu" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Coordenadas do Triangulo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ponto3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ponto 1:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="X                   Y"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto3Xtri">
+        </Component>
+        <Component class="javax.swing.JLabel" name="ponto4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ponto 2:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="confirmarTriangulo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Confirmar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmarTrianguloActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ponto5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ponto 3:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cancelarTriangulo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancelar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarTrianguloActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto1Xtri">
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="escolhaRetanguloDialog">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="ponto9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ponto8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ponto7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ponto6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="ponto4Xret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="ponto3Xret" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="ponto2Xret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="ponto1Xret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="ponto1Yret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="ponto2Yret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="ponto3Yret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="ponto4Yret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Component id="nomePoligono2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="confirmarRetangulo" min="-2" pref="110" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="cancelarRetangulo" min="-2" pref="110" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="50" pref="24" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="nomePoligono2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ponto1Xret" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto1Yret" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ponto2Yret" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto2Xret" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto7" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="ponto3Yret" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="ponto3Xret" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ponto8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ponto4Xret" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto4Yret" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ponto9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cancelarRetangulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="confirmarRetangulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="ponto1Yret">
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto2Yret">
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto2Xret">
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto3Yret">
+        </Component>
+        <Component class="javax.swing.JLabel" name="nomePoligono2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Ubuntu" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Coordenadas Retangulo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto4Xret">
+        </Component>
+        <Component class="javax.swing.JLabel" name="ponto6">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ponto 1:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto4Yret">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="X                   Y"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto3Xret">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ponto3XretActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ponto7">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ponto 2:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="confirmarRetangulo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Confirmar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmarRetanguloActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ponto8">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ponto 3:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="cancelarRetangulo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancelar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarRetanguloActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ponto9">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ponto 4:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ponto1Xret">
+        </Component>
+      </SubComponents>
+    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -126,15 +574,19 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="drawRect" min="-2" pref="120" max="-2" attributes="0"/>
-                  <Component id="drawTri" min="-2" pref="120" max="-2" attributes="0"/>
-                  <Component id="drawLine" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
-                  <Component id="limpar" min="-2" pref="120" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="limpar" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="drawLine" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="drawRect" min="-2" pref="120" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="drawTri" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Component id="rotacao" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="escala" min="-2" pref="120" max="-2" attributes="0"/>
@@ -145,50 +597,42 @@
                   </Group>
                   <Component id="painel" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace pref="81" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="escala" min="-2" pref="102" max="-2" attributes="0"/>
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="limpar" alignment="3" min="-2" pref="102" max="-2" attributes="0"/>
-                      <Component id="rotacao" alignment="3" min="-2" pref="102" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="translacao" alignment="3" min="-2" pref="102" max="-2" attributes="0"/>
-                      <Component id="zoomExtend" alignment="3" min="-2" pref="102" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="escala" alignment="1" min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="rotacao" alignment="1" min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="translacao" alignment="1" min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="zoomExtend" alignment="1" min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="limpar" alignment="1" min="-2" pref="102" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="drawLine" min="-2" pref="102" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="drawRect" min="-2" pref="102" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="drawTri" min="-2" pref="102" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Component id="painel" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="painel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="painel">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder/>
-          </Border>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="painelMouseDragged"/>
         <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="painelMousePressed"/>
@@ -202,12 +646,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="532" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="600" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="340" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -251,7 +695,7 @@
     <Component class="javax.swing.JButton" name="rotacao">
       <Properties>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Padr&#xe3;o"/>
         </Property>
       </Properties>
       <Events>
