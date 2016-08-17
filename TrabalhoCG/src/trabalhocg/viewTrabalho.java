@@ -365,6 +365,8 @@ public class viewTrabalho extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        escolhaRetanguloDialog.setResizable(false);
+
         nomePoligono2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         nomePoligono2.setText("Coordenadas Retangulo");
 

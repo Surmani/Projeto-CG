@@ -381,6 +381,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="escolhaRetanguloDialog">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
