@@ -690,7 +690,7 @@ public class viewTrabalho extends javax.swing.JFrame {
                                 .addComponent(escala, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(41, 41, 41)
                                 .addComponent(translacao, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                                 .addComponent(zoomExtend, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -792,7 +792,7 @@ public class viewTrabalho extends javax.swing.JFrame {
     private void translacaoActionPerformed(java.awt.event.ActionEvent evt) {
         if (mouseState != MouseState.MOUSE_TRANSLACAO) {
             mouseState = MouseState.MOUSE_TRANSLACAO;
-            this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
         } else {
             mouseState = MouseState.MOUSE_NORMAL;
             this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
@@ -1021,7 +1021,12 @@ public class viewTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_angleTxtActionPerformed
 
     private void zoomExtendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomExtendActionPerformed
+        if(!desenho.isPresent()) {
+            return;
+        }
         
+        desenho.get().zoomExtend(0,0, painel.getWidth(), painel.getHeight());
+        desenhar();
     }//GEN-LAST:event_zoomExtendActionPerformed
 
     private void larguraValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_larguraValorActionPerformed

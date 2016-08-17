@@ -258,10 +258,7 @@ public class Poligono {
      */
     public double[][] getJanelaVisualizacao(double padding) {
         double[][] lim = getLimits();
-        
-        printMatrix(lim);
-        
-        
+                
         double pad_x = (padding) * Math.abs(lim[0][1] - lim[0][0]);
         double pad_y = (padding) * Math.abs(lim[1][1] - lim[1][0]);
         
@@ -275,30 +272,7 @@ public class Poligono {
         //Y_max
         lim[1][1] = lim[1][1] + pad_y;
         
-        
-        printMatrix(lim);
         return lim;
-    }
-    
-    /**
-     * Retorna o sistema de coordenadas do dispositivo em int[][] a partir de g
-     * Lembrando que o PDCS tem o Y negativo
-     * @param g
-     * @return 
-     */
-    public int[][] getPDCS(Graphics g)
-    {
-        Rectangle disp = g.getClipBounds();
-        
-        int U_min = disp.x;
-        int U_max = disp.x + disp.width-1;
-        int V_min = (disp.y);
-        int V_max = (disp.y + disp.height-1);
-        
-        return new int[][] {
-            {U_min,U_max},
-            {V_min,V_max}
-        };
     }
     
     static public void printMatrix(double[][] mat) {
@@ -307,11 +281,11 @@ public class Poligono {
         }
     }
     
-    public double[][] transJanelaViewport(double height) 
+    public double[][] transJanelaViewport(int height) 
     {   
         double[][] tjv = {
             {1, 0, 0},
-            {0, -1, height},
+            {0, -1, (double)height},
             {0,0,1}
         };
         
@@ -320,94 +294,53 @@ public class Poligono {
         return res;
     }
     
-    /**
-     * Realiza uma transformacao janela-viewport sem contar o aspect ratio
-     * @param g
-     * @return 
-     */
-    public double[][] tjv_zoom(Graphics g) {
-        double[][] janela = getJanelaVisualizacao();
-        int[][] PDCS = getPDCS(g);
+    public void zoomExtend(int x, int y, int width, int height)
+    {
+        double Umin, Umax, Vmin, Vmax, Umax_old, Vmax_old;
+        Umin = x; Umax = Umax_old = x + width - 1;
+        Vmin = y; Vmax = Vmax_old = y + height - 1;
         
-        double U_min = PDCS[0][0];
-        double U_max = PDCS[0][1];
-        double U_max_old = U_max;
-        double V_min = PDCS[1][0];
-        double V_max = PDCS[1][1];
-        double V_max_old = V_max;
-        double X_min = janela[0][0];
-        double X_max = janela[0][1];
-        double Y_min = janela[1][0];
-        double Y_max = janela[1][1];
+        double Xmin, Xmax, Ymin, Ymax;
+        double[][] jvis = getJanelaVisualizacao();
+        Xmin = jvis[0][0];
+        Xmax = jvis[0][1];
+        Ymin = jvis[1][0];
+        Ymax = jvis[1][1];
         
-        double Rw = (X_max - X_min) / (Y_max - Y_min);
-        double Rv = (U_max - U_min) / (V_max - V_min);
+        //aspect ratio
+        double RatioJanela = (Xmax - Xmin) / (Ymax - Ymin);
+        double RatioView = (Umax - Umin) / (Vmax - Vmin);
         
-        if(Rw > Rv) {
-            V_max = ((U_max - U_min) / Rw) + V_min;
-        } else if(Rw < Rv) {
-            U_max = Rw * (V_max - V_min) + U_min;
+        if(RatioJanela > RatioView) {
+            Vmax = ((Umax - Umin) / RatioJanela) + Vmin;
+        } else if(RatioJanela < RatioView) {
+            Umax = (RatioJanela * (Vmax - Vmin)) + Umin;
         }
         
+        double Sx = ((Umax - Umin) / (Xmax - Xmin));
+        double Sy = ((Vmax - Vmin) / (Ymax - Ymin));
         
-        
-        double Sx = ((U_max - U_min) / (X_max - X_min));
-        double Sy = ((V_max - V_min) / (Y_max - Y_min));
-        
-        
-        /*
-        //Operações realizadas:
-        double Tjv[][] = getMatrixTranslation(-X_min, -Y_min);
-        Tjv = multMatrix(getMatrixScale(Sx, Sy), Tjv);
-        Tjv = multMatrix(getMatrixTranslation(U_min, V_min), Tjv);
-        
-        //translação para mudança de sistema de coordenadas
-        Tjv = multMatrix(getMatrixTranslation(0, -(V_max + V_min)), Tjv );
-        */
-        
-        
-        double[][] Tjv = {
-            {Sx, 0, -Sx * X_min + U_min},
-            {0, Sy, -Sy * Y_min - V_max},
-            {0, 0,  1}
+        //T(Umin,Vmin) . S(Sx, Sy) . T(-Xmin, -Ymin)
+        /*double[][] tst = getMatrixTranslation(-Xmin, -Ymin);
+        tst = multMatrix(getMatrixScale(Sx, Sy), tst);
+        tst = multMatrix(getMatrixTranslation(Umin, Vmin), tst);*/
+        double[][] tst = {
+            {Sx, 0, Umin - Sx*Xmin},
+            {0, Sy, Vmin - Sy*Ymin},
+            {0, 0, 1}
         };
-        double[][] res = multMatrix(Tjv, coord);
         
-        if(V_max_old != V_max) {
-            res = multMatrix(getMatrixTranslation(0, (V_max_old - V_max)/2), res);
-        } else if(U_max_old != U_max) {
-            res = multMatrix(getMatrixTranslation((U_max_old - U_max)/2, 0), res);
-            
+        //Centralizar
+        if(Umax != Umax_old) {
+            tst = multMatrix(
+                    getMatrixTranslation((Umax_old - Umax)/2, 0), tst);
+        }
+        if(Vmax != Vmax_old) {
+            tst = multMatrix(
+                    getMatrixTranslation(0, (Vmax_old - Vmax)/2), tst);
         }
         
-        return res;
-    }
-    
-    
-    /**
-     * Desenha o polígono sobre os gráficos g
-     * Converte das coordenadas internas(contínuas) para coordenadas da viewport(discretas)
-     * @param g 
-     */
-    public void draw(/*Graphics g*/) {
-        
+        coord = multMatrix(tst, coord);
         
     }
-    
-    
-    public static void main(String[] args) {
-        //teste
-        Ponto2D[] pts = {
-            new Ponto2D(0, 0),
-            new Ponto2D(0, 1),
-            new Ponto2D(1, 0),
-            new Ponto2D(1, 1)
-        };
-        
-        Poligono p = new Poligono(pts);
-        
-        p.draw();
-    }
-    
-    
 }
