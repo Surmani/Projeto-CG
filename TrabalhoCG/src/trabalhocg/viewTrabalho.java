@@ -40,7 +40,7 @@ public class viewTrabalho extends javax.swing.JFrame {
      * Creates new form viewTrabalho
      */
     public viewTrabalho() {
-        getContentPane().setBackground(new Color(160,180,220));
+        getContentPane().setBackground(new Color(160, 180, 220));
         setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         initComponents();
         painel.setBackground(Color.white);
@@ -135,6 +135,7 @@ public class viewTrabalho extends javax.swing.JFrame {
         zoomExtend = new javax.swing.JButton("",imgZoomExtend);
         posTxt = new javax.swing.JLabel();
 
+        escalaDialog.setModal(true);
         escalaDialog.setName("escala dialog"); // NOI18N
         escalaDialog.setResizable(false);
 
@@ -507,7 +508,7 @@ public class viewTrabalho extends javax.swing.JFrame {
 
         jLabel8.setText("y");
 
-        jLabel9.setText("Ângulo de rotação:");
+        jLabel9.setText("Ângulo de rotação (graus):");
         jLabel9.setToolTipText("Sentido Anti-horário");
 
         angleTxt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.###"))));
@@ -539,23 +540,25 @@ public class viewTrabalho extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(rotacaoDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(rotacaoDialogLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(xSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(rotacaoDialogLayout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(angleTxt))
-                    .addGroup(rotacaoDialogLayout.createSequentialGroup()
                         .addComponent(rotacaoOK, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rotacaoCancel)))
+                        .addComponent(rotacaoCancel))
+                    .addGroup(rotacaoDialogLayout.createSequentialGroup()
+                        .addGroup(rotacaoDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(rotacaoDialogLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7))
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(rotacaoDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(angleTxt)
+                            .addGroup(rotacaoDialogLayout.createSequentialGroup()
+                                .addComponent(xSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         rotacaoDialogLayout.setVerticalGroup(
@@ -801,10 +804,10 @@ public class viewTrabalho extends javax.swing.JFrame {
 
     private void painelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseDragged
         java.awt.Point pos = evt.getPoint();
-        if( 0 <= pos.x && pos.x < painel.getWidth() &&
-            0 <= (-pos.y + painel.getHeight()-1) && 
-            -pos.y + painel.getHeight()-1 < painel.getHeight()) {
-            posTxt.setText(String.format("[%d,%d]", pos.x, -pos.y + painel.getHeight()-1));
+        if (0 <= pos.x && pos.x < painel.getWidth()
+                && 0 <= (-pos.y + painel.getHeight() - 1)
+                && -pos.y + painel.getHeight() - 1 < painel.getHeight()) {
+            posTxt.setText(String.format("[%d,%d]", pos.x, -pos.y + painel.getHeight() - 1));
         } else {
             posTxt.setText("");
         }
@@ -844,6 +847,7 @@ public class viewTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_Cancel_EscalaActionPerformed
 
     private void OK_EscalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OK_EscalaActionPerformed
+
         if (!desenho.isPresent()) {
             escalaDialog.dispose();
             return;
@@ -853,33 +857,25 @@ public class viewTrabalho extends javax.swing.JFrame {
         double Sx = 1.0;
         double Sy = 1.0;
         try {
-            NumberFormat fmt = NumberFormat.getInstance();
-            Number num = fmt.parse(TextSx.getText());
-            Sx = num.doubleValue();
+            Sx = Double.parseDouble(TextSx.getText());
+            Sx = Double.parseDouble(TextSy.getText());
+
+            int x = (int) xRefEscala.getValue();
+            int y = (int) yRefEscala.getValue();
+
+            des.scale(new Ponto2D(x, y), Sx, Sy);
+            desenhar();
+
+            TextSx.setText("");
+            TextSy.setText("");
+            xRefEscala.setValue(0);
+            yRefEscala.setValue(0);
+            escalaDialog.dispose();
         } catch (NumberFormatException e) {
-        } catch (ParseException ex) {
-            Logger.getLogger(viewTrabalho.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            NumberFormat fmt = NumberFormat.getInstance();
-            Number num = fmt.parse(TextSy.getText());
-            Sy = num.doubleValue();
-        } catch (NumberFormatException e) {
-        } catch (ParseException ex) {
-            Logger.getLogger(viewTrabalho.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Os campos devem ser preenchidos!", "Alerta", JOptionPane.ERROR_MESSAGE);
         }
 
-        int x = (int) xRefEscala.getValue();
-        int y = (int) yRefEscala.getValue();
-        
-        des.scale(new Ponto2D(x, y), Sx, Sy);
-        desenhar();
-        
-        TextSx.setText("");
-        TextSy.setText("");
-        xRefEscala.setValue(0);
-        yRefEscala.setValue(0);
-        escalaDialog.dispose();
+
     }//GEN-LAST:event_OK_EscalaActionPerformed
 
     private void rotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotacaoActionPerformed
@@ -902,7 +898,7 @@ public class viewTrabalho extends javax.swing.JFrame {
             ponto2X.setText("");
             ponto2Y.setText("");
             escolhaRetaDialog.dispose();
-            
+
         } catch (NumberFormatException ex) {
 
             JOptionPane.showMessageDialog(null, "Deve colocar apenas números", "Alerta", JOptionPane.ERROR_MESSAGE);
@@ -930,7 +926,7 @@ public class viewTrabalho extends javax.swing.JFrame {
             ponto3Xtri.setText("");
             ponto3Ytri.setText("");
             escolhaTrianguloDialog.dispose();
-            
+
         } catch (NumberFormatException ex) {
 
             JOptionPane.showMessageDialog(null, "Deve colocar apenas números", "Alerta", JOptionPane.ERROR_MESSAGE);
@@ -952,13 +948,13 @@ public class viewTrabalho extends javax.swing.JFrame {
             }));
 
             desenhar();
-            
+
             pontoXret.setText("");
             pontoYret.setText("");
             larguraValor.setText("");
             alturaValor.setText("");
             escolhaRetanguloDialog.dispose();
-            
+
         } catch (NumberFormatException ex) {
 
             JOptionPane.showMessageDialog(null, "Deve colocar apenas números", "Alerta", JOptionPane.ERROR_MESSAGE);
@@ -971,7 +967,7 @@ public class viewTrabalho extends javax.swing.JFrame {
 
     private void painelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseMoved
         java.awt.Point pos = evt.getPoint();
-        posTxt.setText(String.format("[%d,%d]", pos.x, -pos.y + painel.getHeight()-1));
+        posTxt.setText(String.format("[%d,%d]", pos.x, -pos.y + painel.getHeight() - 1));
     }//GEN-LAST:event_painelMouseMoved
 
     private void painelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseExited
@@ -980,36 +976,37 @@ public class viewTrabalho extends javax.swing.JFrame {
 
     private void rotacaoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotacaoOKActionPerformed
         //realizar rotacao sobre desenho
-        if(!desenho.isPresent()) {
+
+        if (!desenho.isPresent()) {
             rotacaoDialog.dispose();
             return;
         }
-        
+
         double deg = 0;
         try {
-            NumberFormat fmt = NumberFormat.getInstance();
-            Number num = fmt.parse(angleTxt.getText());
-            deg = num.doubleValue();
+
+            deg = Float.parseFloat(angleTxt.getText());
+
+            int x = (int) xSpinner.getValue();
+            int y = (int) ySpinner.getValue();
+
+            Ponto2D ponto = new Ponto2D(x, y);
+
+            if (deg != 0) {
+                desenho.get().rotateDeg(ponto, deg);
+                desenhar();
+            }
+
+            angleTxt.setText("");
+            xSpinner.setValue(0);
+            ySpinner.setValue(0);
+            rotacaoDialog.dispose();
+
         } catch (NumberFormatException e) {
-        } catch (ParseException ex) {
-            Logger.getLogger(viewTrabalho.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Os campos devem ser preenchidos!", "Alerta", JOptionPane.ERROR_MESSAGE);
         }
-        
-        int x = (int)xSpinner.getValue();
-        int y = (int)ySpinner.getValue();
-        
-        Ponto2D ponto = new Ponto2D(x,y);
-        
-        if(deg != 0) {
-            desenho.get().rotateDeg(ponto, deg);
-            desenhar();
-        }
-        
-        angleTxt.setText("");
-        xSpinner.setValue(0);
-        ySpinner.setValue(0);
-        
-        rotacaoDialog.dispose();
+
+
     }//GEN-LAST:event_rotacaoOKActionPerformed
 
     private void rotacaoCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotacaoCancelActionPerformed
@@ -1021,11 +1018,11 @@ public class viewTrabalho extends javax.swing.JFrame {
     }//GEN-LAST:event_angleTxtActionPerformed
 
     private void zoomExtendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomExtendActionPerformed
-        if(!desenho.isPresent()) {
+        if (!desenho.isPresent()) {
             return;
         }
-        
-        desenho.get().zoomExtend(0,0, painel.getWidth(), painel.getHeight());
+
+        desenho.get().zoomExtend(0, 0, painel.getWidth(), painel.getHeight());
         desenhar();
     }//GEN-LAST:event_zoomExtendActionPerformed
 
@@ -1053,7 +1050,7 @@ public class viewTrabalho extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(viewTrabalho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
