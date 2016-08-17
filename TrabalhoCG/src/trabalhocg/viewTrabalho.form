@@ -429,52 +429,43 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="confirmarRetangulo" min="-2" pref="110" max="-2" attributes="0"/>
+                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <Component id="cancelarRetangulo" min="-2" pref="110" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="ponto9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ponto8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ponto7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ponto6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="largura" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="altura" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="ponto6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="alturaValor" min="-2" pref="108" max="-2" attributes="0"/>
+                              <Component id="larguraValor" min="-2" pref="108" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="pontoXret" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="pontoYret" min="-2" pref="40" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="ponto4Xret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Component id="ponto3Xret" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Component id="ponto2Xret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Component id="ponto1Xret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="ponto1Yret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Component id="ponto2Yret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Component id="ponto3Yret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Component id="ponto4Yret" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="nomePoligono2" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="confirmarRetangulo" min="-2" pref="110" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                          <Component id="cancelarRetangulo" min="-2" pref="110" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="nomePoligono2" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="50" pref="24" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -487,34 +478,26 @@
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ponto1Xret" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ponto1Yret" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pontoXret" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pontoYret" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ponto6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ponto2Yret" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ponto2Xret" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ponto7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="alturaValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="altura" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="larguraValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="largura" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ponto3Yret" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="ponto3Xret" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ponto8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ponto4Xret" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ponto4Yret" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ponto9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cancelarRetangulo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="confirmarRetangulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="confirmarRetangulo" min="-2" max="-2" attributes="0"/>
+                      <Component id="cancelarRetangulo" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -522,13 +505,9 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="ponto1Yret">
+        <Component class="javax.swing.JTextField" name="pontoYret">
         </Component>
-        <Component class="javax.swing.JTextField" name="ponto2Yret">
-        </Component>
-        <Component class="javax.swing.JTextField" name="ponto2Xret">
-        </Component>
-        <Component class="javax.swing.JTextField" name="ponto3Yret">
+        <Component class="javax.swing.JTextField" name="alturaValor">
         </Component>
         <Component class="javax.swing.JLabel" name="nomePoligono2">
           <Properties>
@@ -538,25 +517,24 @@
             <Property name="text" type="java.lang.String" value="Coordenadas Retangulo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="ponto4Xret">
-        </Component>
         <Component class="javax.swing.JLabel" name="ponto6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ponto 1:"/>
+            <Property name="text" type="java.lang.String" value="Ponto:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="ponto4Yret">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="text" type="java.lang.String" value="X                   Y"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="ponto3Xret">
+        <Component class="javax.swing.JTextField" name="larguraValor">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="larguraValorActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="ponto7">
+        <Component class="javax.swing.JLabel" name="altura">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ponto 2:"/>
+            <Property name="text" type="java.lang.String" value="Altura:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="confirmarRetangulo">
@@ -567,9 +545,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmarRetanguloActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="ponto8">
+        <Component class="javax.swing.JLabel" name="largura">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ponto 3:"/>
+            <Property name="text" type="java.lang.String" value="Largura:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="cancelarRetangulo">
@@ -580,12 +558,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarRetanguloActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="ponto9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ponto 4:"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="pontoXret">
         </Component>
-        <Component class="javax.swing.JTextField" name="ponto1Xret">
+        <Component class="javax.swing.JSeparator" name="jSeparator1">
         </Component>
       </SubComponents>
     </Container>
@@ -731,10 +706,13 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="posTxt" min="-2" pref="59" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="posTxt" min="-2" pref="70" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="limpar" min="-2" pref="120" max="-2" attributes="0"/>
@@ -896,6 +874,9 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="zoomExtend">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zoomExtendActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(&quot;&quot;,imgZoomExtend)"/>
         <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon imgZoomExtend = new ImageIcon(getClass().getResource(&quot;/imagens/zoomextend.png&quot;));"/>

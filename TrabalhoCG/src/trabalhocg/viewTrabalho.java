@@ -94,22 +94,18 @@ public class viewTrabalho extends javax.swing.JFrame {
         cancelarTriangulo = new javax.swing.JButton();
         ponto1Xtri = new javax.swing.JTextField();
         escolhaRetanguloDialog = new javax.swing.JDialog();
-        ponto1Yret = new javax.swing.JTextField();
-        ponto2Yret = new javax.swing.JTextField();
-        ponto2Xret = new javax.swing.JTextField();
-        ponto3Yret = new javax.swing.JTextField();
+        pontoYret = new javax.swing.JTextField();
+        alturaValor = new javax.swing.JTextField();
         nomePoligono2 = new javax.swing.JLabel();
-        ponto4Xret = new javax.swing.JTextField();
         ponto6 = new javax.swing.JLabel();
-        ponto4Yret = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        ponto3Xret = new javax.swing.JTextField();
-        ponto7 = new javax.swing.JLabel();
+        larguraValor = new javax.swing.JTextField();
+        altura = new javax.swing.JLabel();
         confirmarRetangulo = new javax.swing.JButton();
-        ponto8 = new javax.swing.JLabel();
+        largura = new javax.swing.JLabel();
         cancelarRetangulo = new javax.swing.JButton();
-        ponto9 = new javax.swing.JLabel();
-        ponto1Xret = new javax.swing.JTextField();
+        pontoXret = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
         rotacaoDialog = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
         xSpinner = new javax.swing.JSpinner();
@@ -411,11 +407,17 @@ public class viewTrabalho extends javax.swing.JFrame {
         nomePoligono2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         nomePoligono2.setText("Coordenadas Retangulo");
 
-        ponto6.setText("Ponto 1:");
+        ponto6.setText("Ponto:");
 
         jLabel5.setText("X                   Y");
 
-        ponto7.setText("Ponto 2:");
+        larguraValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                larguraValorActionPerformed(evt);
+            }
+        });
+
+        altura.setText("Altura:");
 
         confirmarRetangulo.setText("Confirmar");
         confirmarRetangulo.addActionListener(new java.awt.event.ActionListener() {
@@ -424,7 +426,7 @@ public class viewTrabalho extends javax.swing.JFrame {
             }
         });
 
-        ponto8.setText("Ponto 3:");
+        largura.setText("Largura:");
 
         cancelarRetangulo.setText("Cancelar");
         cancelarRetangulo.addActionListener(new java.awt.event.ActionListener() {
@@ -433,47 +435,39 @@ public class viewTrabalho extends javax.swing.JFrame {
             }
         });
 
-        ponto9.setText("Ponto 4:");
-
         javax.swing.GroupLayout escolhaRetanguloDialogLayout = new javax.swing.GroupLayout(escolhaRetanguloDialog.getContentPane());
         escolhaRetanguloDialog.getContentPane().setLayout(escolhaRetanguloDialogLayout);
         escolhaRetanguloDialogLayout.setHorizontalGroup(
             escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escolhaRetanguloDialogLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(confirmarRetangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(cancelarRetangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
             .addGroup(escolhaRetanguloDialogLayout.createSequentialGroup()
-                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(55, 55, 55)
+                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(escolhaRetanguloDialogLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, escolhaRetanguloDialogLayout.createSequentialGroup()
-                                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ponto9)
-                                    .addComponent(ponto8)
-                                    .addComponent(ponto7)
-                                    .addComponent(ponto6))
-                                .addGap(42, 42, 42)
-                                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(escolhaRetanguloDialogLayout.createSequentialGroup()
-                                        .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(ponto4Xret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ponto3Xret, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ponto2Xret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ponto1Xret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(28, 28, 28)
-                                        .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(ponto1Yret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ponto2Yret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ponto3Yret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ponto4Yret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escolhaRetanguloDialogLayout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(15, 15, 15))))
-                            .addComponent(nomePoligono2, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addGroup(escolhaRetanguloDialogLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(confirmarRetangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
-                        .addComponent(cancelarRetangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, Short.MAX_VALUE))
+                        .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(largura)
+                            .addComponent(altura)
+                            .addComponent(ponto6))
+                        .addGap(42, 42, 42)
+                        .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(alturaValor, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(larguraValor, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(escolhaRetanguloDialogLayout.createSequentialGroup()
+                                    .addComponent(pontoXret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(28, 28, 28)
+                                    .addComponent(pontoYret, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escolhaRetanguloDialogLayout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addGap(15, 15, 15)))))
+                    .addComponent(nomePoligono2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         escolhaRetanguloDialogLayout.setVerticalGroup(
             escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -484,29 +478,23 @@ public class viewTrabalho extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ponto1Xret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ponto1Yret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pontoXret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pontoYret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ponto6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(alturaValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(altura))
                 .addGap(18, 18, 18)
                 .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ponto2Yret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ponto2Xret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ponto7))
-                .addGap(18, 18, 18)
+                    .addComponent(larguraValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(largura))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ponto3Yret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ponto3Xret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ponto8)))
-                .addGap(18, 18, 18)
-                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ponto4Xret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ponto4Yret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ponto9))
-                .addGap(36, 36, 36)
-                .addGroup(escolhaRetanguloDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancelarRetangulo)
-                    .addComponent(confirmarRetangulo))
+                    .addComponent(confirmarRetangulo)
+                    .addComponent(cancelarRetangulo))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -672,6 +660,12 @@ public class viewTrabalho extends javax.swing.JFrame {
             }
         });
 
+        zoomExtend.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zoomExtendActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -679,7 +673,9 @@ public class viewTrabalho extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(posTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(posTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -878,6 +874,11 @@ public class viewTrabalho extends javax.swing.JFrame {
         
         des.scale(new Ponto2D(x, y), Sx, Sy);
         desenhar();
+        
+        TextSx.setText("");
+        TextSy.setText("");
+        xRefEscala.setValue(0);
+        yRefEscala.setValue(0);
         escalaDialog.dispose();
     }//GEN-LAST:event_OK_EscalaActionPerformed
 
@@ -896,7 +897,10 @@ public class viewTrabalho extends javax.swing.JFrame {
             }));
 
             desenhar();
-            
+            ponto1X.setText("");
+            ponto1Y.setText("");
+            ponto2X.setText("");
+            ponto2Y.setText("");
             escolhaRetaDialog.dispose();
             
         } catch (NumberFormatException ex) {
@@ -919,7 +923,12 @@ public class viewTrabalho extends javax.swing.JFrame {
             }));
 
             desenhar();
-            
+            ponto1Xtri.setText("");
+            ponto1Ytri.setText("");
+            ponto2Xtri.setText("");
+            ponto2Ytri.setText("");
+            ponto3Xtri.setText("");
+            ponto3Ytri.setText("");
             escolhaTrianguloDialog.dispose();
             
         } catch (NumberFormatException ex) {
@@ -936,14 +945,18 @@ public class viewTrabalho extends javax.swing.JFrame {
         try {
             desenho = Optional.of(
                     new Poligono(new Ponto2D[]{
-                new Ponto2D(Integer.parseInt(ponto1Xret.getText()), Integer.parseInt(ponto1Yret.getText())),
-                new Ponto2D(Integer.parseInt(ponto2Xret.getText()), Integer.parseInt(ponto2Yret.getText())),
-                new Ponto2D(Integer.parseInt(ponto3Xret.getText()), Integer.parseInt(ponto3Yret.getText())),
-                new Ponto2D(Integer.parseInt(ponto4Xret.getText()), Integer.parseInt(ponto4Yret.getText()))
+                new Ponto2D(Integer.parseInt(pontoXret.getText()), Integer.parseInt(pontoYret.getText())),
+                new Ponto2D(Integer.parseInt(pontoXret.getText()) + Integer.parseInt(larguraValor.getText()), Integer.parseInt(pontoYret.getText())),
+                new Ponto2D(Integer.parseInt(pontoXret.getText()) + Integer.parseInt(larguraValor.getText()), Integer.parseInt(pontoYret.getText()) + Integer.parseInt(alturaValor.getText())),
+                new Ponto2D(Integer.parseInt(pontoXret.getText()), Integer.parseInt(pontoYret.getText()) + Integer.parseInt(alturaValor.getText()))
             }));
 
             desenhar();
             
+            pontoXret.setText("");
+            pontoYret.setText("");
+            larguraValor.setText("");
+            alturaValor.setText("");
             escolhaRetanguloDialog.dispose();
             
         } catch (NumberFormatException ex) {
@@ -992,6 +1005,10 @@ public class viewTrabalho extends javax.swing.JFrame {
             desenhar();
         }
         
+        angleTxt.setText("");
+        xSpinner.setValue(0);
+        ySpinner.setValue(0);
+        
         rotacaoDialog.dispose();
     }//GEN-LAST:event_rotacaoOKActionPerformed
 
@@ -1002,6 +1019,14 @@ public class viewTrabalho extends javax.swing.JFrame {
     private void angleTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_angleTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_angleTxtActionPerformed
+
+    private void zoomExtendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zoomExtendActionPerformed
+        
+    }//GEN-LAST:event_zoomExtendActionPerformed
+
+    private void larguraValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_larguraValorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_larguraValorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1037,6 +1062,8 @@ public class viewTrabalho extends javax.swing.JFrame {
     private javax.swing.JButton OK_Escala;
     private javax.swing.JFormattedTextField TextSx;
     private javax.swing.JFormattedTextField TextSy;
+    private javax.swing.JLabel altura;
+    private javax.swing.JTextField alturaValor;
     private javax.swing.JFormattedTextField angleTxt;
     private javax.swing.JButton cancelarEscolhaReta;
     private javax.swing.JButton cancelarRetangulo;
@@ -1064,6 +1091,9 @@ public class viewTrabalho extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel largura;
+    private javax.swing.JTextField larguraValor;
     private javax.swing.JButton limpar;
     private javax.swing.JLabel nomePoligono;
     private javax.swing.JLabel nomePoligono1;
@@ -1071,31 +1101,22 @@ public class viewTrabalho extends javax.swing.JFrame {
     public javax.swing.JPanel painel;
     private javax.swing.JLabel ponto1;
     private javax.swing.JTextField ponto1X;
-    private javax.swing.JTextField ponto1Xret;
     private javax.swing.JTextField ponto1Xtri;
     private javax.swing.JTextField ponto1Y;
-    private javax.swing.JTextField ponto1Yret;
     private javax.swing.JTextField ponto1Ytri;
     private javax.swing.JLabel ponto2;
     private javax.swing.JTextField ponto2X;
-    private javax.swing.JTextField ponto2Xret;
     private javax.swing.JTextField ponto2Xtri;
     private javax.swing.JTextField ponto2Y;
-    private javax.swing.JTextField ponto2Yret;
     private javax.swing.JTextField ponto2Ytri;
     private javax.swing.JLabel ponto3;
-    private javax.swing.JTextField ponto3Xret;
     private javax.swing.JTextField ponto3Xtri;
-    private javax.swing.JTextField ponto3Yret;
     private javax.swing.JTextField ponto3Ytri;
     private javax.swing.JLabel ponto4;
-    private javax.swing.JTextField ponto4Xret;
-    private javax.swing.JTextField ponto4Yret;
     private javax.swing.JLabel ponto5;
     private javax.swing.JLabel ponto6;
-    private javax.swing.JLabel ponto7;
-    private javax.swing.JLabel ponto8;
-    private javax.swing.JLabel ponto9;
+    private javax.swing.JTextField pontoXret;
+    private javax.swing.JTextField pontoYret;
     private javax.swing.JLabel posTxt;
     private javax.swing.JButton rotacao;
     private javax.swing.JButton rotacaoCancel;
