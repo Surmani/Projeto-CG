@@ -8,7 +8,6 @@ package trabalhocg;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics;
-import java.awt.Toolkit;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Optional;
@@ -41,8 +40,8 @@ public class viewTrabalho extends javax.swing.JFrame {
      * Creates new form viewTrabalho
      */
     public viewTrabalho() {
-        this.getContentPane().setBackground(new Color(160,180,220));
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        getContentPane().setBackground(new Color(160,180,220));
+        setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         initComponents();
         painel.setBackground(Color.white);
 
@@ -64,6 +63,11 @@ public class viewTrabalho extends javax.swing.JFrame {
         TextSy = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        xRefEscala = new javax.swing.JSpinner();
+        jLabel12 = new javax.swing.JLabel();
+        yRefEscala = new javax.swing.JSpinner();
         escolhaRetaDialog = new javax.swing.JDialog();
         ponto1Y = new javax.swing.JTextField();
         ponto2Y = new javax.swing.JTextField();
@@ -106,6 +110,16 @@ public class viewTrabalho extends javax.swing.JFrame {
         cancelarRetangulo = new javax.swing.JButton();
         ponto9 = new javax.swing.JLabel();
         ponto1Xret = new javax.swing.JTextField();
+        rotacaoDialog = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        xSpinner = new javax.swing.JSpinner();
+        ySpinner = new javax.swing.JSpinner();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        angleTxt = new javax.swing.JFormattedTextField();
+        rotacaoOK = new javax.swing.JButton();
+        rotacaoCancel = new javax.swing.JButton();
         painel = new javax.swing.JPanel();
         ImageIcon imgReta = new ImageIcon(getClass().getResource("/imagens/reta.png"));
         drawLine = new javax.swing.JButton("",imgReta);
@@ -123,6 +137,7 @@ public class viewTrabalho extends javax.swing.JFrame {
         escala = new javax.swing.JButton("",imgEscala);
         ImageIcon imgZoomExtend = new ImageIcon(getClass().getResource("/imagens/zoomextend.png"));
         zoomExtend = new javax.swing.JButton("",imgZoomExtend);
+        posTxt = new javax.swing.JLabel();
 
         escalaDialog.setName("escala dialog"); // NOI18N
         escalaDialog.setResizable(false);
@@ -149,6 +164,12 @@ public class viewTrabalho extends javax.swing.JFrame {
 
         jLabel2.setText("Escala Y:");
 
+        jLabel10.setText("Ponto de Referencia:");
+
+        jLabel11.setText("x");
+
+        jLabel12.setText("y");
+
         javax.swing.GroupLayout escalaDialogLayout = new javax.swing.GroupLayout(escalaDialog.getContentPane());
         escalaDialog.getContentPane().setLayout(escalaDialogLayout);
         escalaDialogLayout.setHorizontalGroup(
@@ -167,13 +188,30 @@ public class viewTrabalho extends javax.swing.JFrame {
                     .addGroup(escalaDialogLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(TextSy, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(TextSy, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(escalaDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(xRefEscala, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(yRefEscala, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         escalaDialogLayout.setVerticalGroup(
             escalaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escalaDialogLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escalaDialogLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(escalaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(xRefEscala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yRefEscala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(escalaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextSx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -185,9 +223,10 @@ public class viewTrabalho extends javax.swing.JFrame {
                 .addGroup(escalaDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(OK_Escala)
                     .addComponent(Cancel_Escala))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
+        escolhaRetaDialog.setModal(true);
         escolhaRetaDialog.setResizable(false);
 
         nomePoligono.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -271,6 +310,7 @@ public class viewTrabalho extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
+        escolhaTrianguloDialog.setModal(true);
         escolhaTrianguloDialog.setResizable(false);
 
         nomePoligono1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -365,6 +405,7 @@ public class viewTrabalho extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        escolhaRetanguloDialog.setModal(true);
         escolhaRetanguloDialog.setResizable(false);
 
         nomePoligono2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -373,12 +414,6 @@ public class viewTrabalho extends javax.swing.JFrame {
         ponto6.setText("Ponto 1:");
 
         jLabel5.setText("X                   Y");
-
-        ponto3Xret.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ponto3XretActionPerformed(evt);
-            }
-        });
 
         ponto7.setText("Ponto 2:");
 
@@ -475,23 +510,111 @@ public class viewTrabalho extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        rotacaoDialog.setModal(true);
+        rotacaoDialog.setResizable(false);
+
+        jLabel6.setText("Ponto de Referencia:");
+
+        jLabel7.setText("x");
+
+        jLabel8.setText("y");
+
+        jLabel9.setText("Ângulo de rotação:");
+        jLabel9.setToolTipText("Sentido Anti-horário");
+
+        angleTxt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.###"))));
+        angleTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                angleTxtActionPerformed(evt);
+            }
+        });
+
+        rotacaoOK.setText("OK");
+        rotacaoOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rotacaoOKActionPerformed(evt);
+            }
+        });
+
+        rotacaoCancel.setText("Cancelar");
+        rotacaoCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rotacaoCancelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout rotacaoDialogLayout = new javax.swing.GroupLayout(rotacaoDialog.getContentPane());
+        rotacaoDialog.getContentPane().setLayout(rotacaoDialogLayout);
+        rotacaoDialogLayout.setHorizontalGroup(
+            rotacaoDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rotacaoDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(rotacaoDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(rotacaoDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(xSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(rotacaoDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(angleTxt))
+                    .addGroup(rotacaoDialogLayout.createSequentialGroup()
+                        .addComponent(rotacaoOK, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(rotacaoCancel)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        rotacaoDialogLayout.setVerticalGroup(
+            rotacaoDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rotacaoDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(rotacaoDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(xSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addGroup(rotacaoDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(angleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(rotacaoDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rotacaoOK)
+                    .addComponent(rotacaoCancel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        painel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         painel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 painelMouseDragged(evt);
             }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                painelMouseMoved(evt);
+            }
         });
         painel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                painelMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                painelMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 painelMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 painelMouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                painelMouseClicked(evt);
             }
         });
 
@@ -555,30 +678,33 @@ public class viewTrabalho extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(posTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(drawLine, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(drawRect, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(drawTri, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(rotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(drawLine, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(drawTri, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(drawRect, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(escala, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(translacao, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(zoomExtend, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(81, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41)
+                                .addComponent(escala, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41)
+                                .addComponent(translacao, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(zoomExtend, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(escala, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rotacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -586,17 +712,17 @@ public class viewTrabalho extends javax.swing.JFrame {
                     .addComponent(zoomExtend, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(limpar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(drawLine, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(48, 48, 48)
                         .addComponent(drawRect, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(drawTri, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(drawTri, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(posTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -678,6 +804,15 @@ public class viewTrabalho extends javax.swing.JFrame {
     }
 
     private void painelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseDragged
+        java.awt.Point pos = evt.getPoint();
+        if( 0 <= pos.x && pos.x < painel.getWidth() &&
+            0 <= (-pos.y + painel.getHeight()-1) && 
+            -pos.y + painel.getHeight()-1 < painel.getHeight()) {
+            posTxt.setText(String.format("[%d,%d]", pos.x, -pos.y + painel.getHeight()-1));
+        } else {
+            posTxt.setText("");
+        }
+
         if (!desenho.isPresent()) {
             return;
         }
@@ -738,13 +873,18 @@ public class viewTrabalho extends javax.swing.JFrame {
             Logger.getLogger(viewTrabalho.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        des.scale(new Ponto2D(0, 0), Sx, Sy);
+        int x = (int) xRefEscala.getValue();
+        int y = (int) yRefEscala.getValue();
+        
+        des.scale(new Ponto2D(x, y), Sx, Sy);
         desenhar();
         escalaDialog.dispose();
     }//GEN-LAST:event_OK_EscalaActionPerformed
 
     private void rotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotacaoActionPerformed
-        // TODO add your handling code here:
+        rotacaoDialog.pack();
+        rotacaoDialog.setLocationRelativeTo(null);
+        rotacaoDialog.setVisible(true);
     }//GEN-LAST:event_rotacaoActionPerformed
 
     private void confirmarEscolhaRetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarEscolhaRetaActionPerformed
@@ -816,9 +956,52 @@ public class viewTrabalho extends javax.swing.JFrame {
         escolhaRetanguloDialog.dispose();
     }//GEN-LAST:event_cancelarRetanguloActionPerformed
 
-    private void ponto3XretActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ponto3XretActionPerformed
+    private void painelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseMoved
+        java.awt.Point pos = evt.getPoint();
+        posTxt.setText(String.format("[%d,%d]", pos.x, -pos.y + painel.getHeight()-1));
+    }//GEN-LAST:event_painelMouseMoved
+
+    private void painelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painelMouseExited
+        posTxt.setText("");
+    }//GEN-LAST:event_painelMouseExited
+
+    private void rotacaoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotacaoOKActionPerformed
+        //realizar rotacao sobre desenho
+        if(!desenho.isPresent()) {
+            rotacaoDialog.dispose();
+            return;
+        }
+        
+        double deg = 0;
+        try {
+            NumberFormat fmt = NumberFormat.getInstance();
+            Number num = fmt.parse(angleTxt.getText());
+            deg = num.doubleValue();
+        } catch (NumberFormatException e) {
+        } catch (ParseException ex) {
+            Logger.getLogger(viewTrabalho.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        int x = (int)xSpinner.getValue();
+        int y = (int)ySpinner.getValue();
+        
+        Ponto2D ponto = new Ponto2D(x,y);
+        
+        if(deg != 0) {
+            desenho.get().rotateDeg(ponto, deg);
+            desenhar();
+        }
+        
+        rotacaoDialog.dispose();
+    }//GEN-LAST:event_rotacaoOKActionPerformed
+
+    private void rotacaoCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotacaoCancelActionPerformed
+        rotacaoDialog.dispose();
+    }//GEN-LAST:event_rotacaoCancelActionPerformed
+
+    private void angleTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_angleTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ponto3XretActionPerformed
+    }//GEN-LAST:event_angleTxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -836,15 +1019,11 @@ public class viewTrabalho extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(viewTrabalho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(viewTrabalho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(viewTrabalho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(viewTrabalho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */
@@ -858,6 +1037,7 @@ public class viewTrabalho extends javax.swing.JFrame {
     private javax.swing.JButton OK_Escala;
     private javax.swing.JFormattedTextField TextSx;
     private javax.swing.JFormattedTextField TextSy;
+    private javax.swing.JFormattedTextField angleTxt;
     private javax.swing.JButton cancelarEscolhaReta;
     private javax.swing.JButton cancelarRetangulo;
     private javax.swing.JButton cancelarTriangulo;
@@ -873,10 +1053,17 @@ public class viewTrabalho extends javax.swing.JFrame {
     private javax.swing.JDialog escolhaRetanguloDialog;
     private javax.swing.JDialog escolhaTrianguloDialog;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JButton limpar;
     private javax.swing.JLabel nomePoligono;
     private javax.swing.JLabel nomePoligono1;
@@ -909,8 +1096,16 @@ public class viewTrabalho extends javax.swing.JFrame {
     private javax.swing.JLabel ponto7;
     private javax.swing.JLabel ponto8;
     private javax.swing.JLabel ponto9;
+    private javax.swing.JLabel posTxt;
     private javax.swing.JButton rotacao;
+    private javax.swing.JButton rotacaoCancel;
+    private javax.swing.JDialog rotacaoDialog;
+    private javax.swing.JButton rotacaoOK;
     private javax.swing.JButton translacao;
+    private javax.swing.JSpinner xRefEscala;
+    private javax.swing.JSpinner xSpinner;
+    private javax.swing.JSpinner yRefEscala;
+    private javax.swing.JSpinner ySpinner;
     private javax.swing.JButton zoomExtend;
     // End of variables declaration//GEN-END:variables
 }
